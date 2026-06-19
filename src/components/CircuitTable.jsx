@@ -1,3 +1,6 @@
+import { useMemo } from 'react'
+import { sortCircuitRowsByLocation } from '../lib/locations'
+
 export default function CircuitTable({
   circuit,
   generated,
@@ -5,11 +8,20 @@ export default function CircuitTable({
   onSwap,
   onRemove,
 }) {
+  const displayRows = useMemo(() => {
+    let stationCount = 0
+
+    return sortCircuitRowsByLocation(circuit).map((row) => ({
+      row,
+      stationLabel: row.templateId ? ++stationCount : '—',
+    }))
+  }, [circuit])
+
   return (
     <section className="proposed-circuit-card">
       <h2>Proposed Circuit</h2>
       <p className="panel-description">
-        Lock keeps a station in its current location when regenerating. Swap replaces it with
+        Lock keeps a station in its current location when regenerating. Change replaces it with
         another eligible station at the same location.
       </p>
 
@@ -32,8 +44,9 @@ export default function CircuitTable({
               </tr>
             </thead>
             <tbody>
-              {circuit.map((row) => {
+              {displayRows.map(({ row, stationLabel }) => {
                 const isEmpty = !row.templateId
+
                 return (
                   <tr
                     key={row.id}
@@ -44,7 +57,7 @@ export default function CircuitTable({
                       .filter(Boolean)
                       .join(' ')}
                   >
-                    <td>{row.stationNumber}</td>
+                    <td>{stationLabel}</td>
                     <td>{row.locationCode}</td>
                     <td>{row.stationName}</td>
                     <td>{row.plannerCategory}</td>
@@ -67,7 +80,7 @@ export default function CircuitTable({
                         disabled={isEmpty}
                         title="Replace with another eligible station"
                       >
-                        Swap
+                        Change
                       </button>
                       <button
                         type="button"

@@ -5,6 +5,7 @@ import CircuitTable from './components/CircuitTable'
 import CircuitMap from './components/CircuitMap'
 import WarningsPanel from './components/WarningsPanel'
 import SwapModal from './components/SwapModal'
+import MoveConfirmModal from './components/MoveConfirmModal'
 import { fetchReferenceData } from './lib/fetchReferenceData'
 import { generateCircuit } from './lib/circuitGenerator'
 import { validateCircuit } from './lib/ruleValidator'
@@ -13,7 +14,9 @@ import { saveClass } from './lib/saveClass'
 import { buildRoundCountMap, getClassRoundCount } from './lib/rounds'
 import {
   applySwapTemplate,
+  applyMoveToLocation,
   clearCircuitRow,
+  findCircuitRowForMapLocation,
   getEligibleSwapTemplates,
   toggleRowLock,
 } from './lib/manualEdits'
@@ -65,6 +68,7 @@ export default function App() {
   const [saveMessage, setSaveMessage] = useState(null)
   const [swapRowId, setSwapRowId] = useState(null)
   const [selectedMapStationId, setSelectedMapStationId] = useState(null)
+  const [pendingMove, setPendingMove] = useState(null)
 
   const classRoundCount = useMemo(
     () => getClassRoundCount(stationCount),
@@ -170,6 +174,7 @@ export default function App() {
 
     setGenerating(true)
     setSwapRowId(null)
+    setPendingMove(null)
 
     const { circuit: nextCircuit, warnings: generationWarnings } = generateCircuit({
       stationCount,
@@ -230,6 +235,49 @@ export default function App() {
         circuit.map((row) => (row.id === rowId ? clearCircuitRow(row) : row)),
       ),
     )
+  }
+
+  const handleMapMoveRequest = ({
+    fromLocationCode,
+    toLocationCode,
+    templateId,
+    stationName,
+  }) => {
+    const row = findCircuitRowForMapLocation(circuit, fromLocationCode, templateId)
+    if (!row) return
+
+    const previousCircuit = circuit
+    const nextCircuit = circuit.map((entry) =>
+      entry.id === row.id
+        ? applyMoveToLocation(entry, toLocationCode)
+        : entry,
+    )
+
+    setCircuit(nextCircuit)
+    if (generated) {
+      setWarnings(applyValidation(nextCircuit))
+    }
+
+    setPendingMove({
+      fromLocationCode,
+      toLocationCode,
+      stationName: stationName ?? row.stationName,
+      previousCircuit,
+    })
+  }
+
+  const handleMoveConfirm = () => {
+    setPendingMove(null)
+  }
+
+  const handleMoveCancel = () => {
+    if (!pendingMove) return
+
+    setCircuit(pendingMove.previousCircuit)
+    if (generated) {
+      setWarnings(applyValidation(pendingMove.previousCircuit))
+    }
+    setPendingMove(null)
   }
 
   const canSave =
@@ -328,6 +376,8 @@ export default function App() {
             onStationClick={({ stationTemplateId }) => {
               setSelectedMapStationId(stationTemplateId ?? null)
             }}
+            onMoveRequest={handleMapMoveRequest}
+            moveDisabled={Boolean(pendingMove)}
             generated={generated}
           />
           <WarningsPanel
@@ -353,6 +403,12 @@ export default function App() {
           candidates={swapCandidates}
           onSelect={handleSwapSelect}
           onClose={() => setSwapRowId(null)}
+        />
+
+        <MoveConfirmModal
+          move={pendingMove}
+          onConfirm={handleMoveConfirm}
+          onCancel={handleMoveCancel}
         />
       </div>
     </div>

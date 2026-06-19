@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './CircuitMap.css'
 import { expandLocationCodes } from '../lib/locationAssignment'
 
@@ -62,10 +63,15 @@ function StationSlot({
   assignment,
   isActive,
   isSelected,
+  isDropTarget,
+  moveDisabled,
   onStationClick,
+  onMoveRequest,
+  onDragStateChange,
 }) {
   const isUsed = Boolean(assignment?.station_name)
   const templateId = assignment?.station_template_id ?? assignment?.templateId ?? null
+  const canDrag = isUsed && isActive && !assignment?.locked && !moveDisabled
 
   const handleClick = () => {
     onStationClick({
@@ -75,12 +81,73 @@ function StationSlot({
     })
   }
 
+  const handleDragStart = (event) => {
+    if (!canDrag) {
+      event.preventDefault()
+      return
+    }
+
+    event.dataTransfer.effectAllowed = 'move'
+    event.dataTransfer.setData(
+      'application/json',
+      JSON.stringify({
+        fromLocationCode: code,
+        templateId,
+        stationName: assignment.station_name,
+      }),
+    )
+    onDragStateChange?.({ draggingFrom: code })
+  }
+
+  const handleDragEnd = () => {
+    onDragStateChange?.({ draggingFrom: null, dropTarget: null })
+  }
+
+  const handleDragOver = (event) => {
+    if (!isActive || isUsed || moveDisabled) return
+
+    event.preventDefault()
+    event.dataTransfer.dropEffect = 'move'
+    onDragStateChange?.({ dropTarget: code })
+  }
+
+  const handleDragLeave = () => {
+    onDragStateChange?.({ dropTarget: null })
+  }
+
+  const handleDrop = (event) => {
+    if (!isActive || isUsed || moveDisabled) return
+
+    event.preventDefault()
+
+    let payload
+    try {
+      payload = JSON.parse(event.dataTransfer.getData('application/json'))
+    } catch {
+      return
+    }
+
+    if (!payload?.fromLocationCode || !payload?.templateId) return
+    if (payload.fromLocationCode === code) return
+
+    onMoveRequest?.({
+      fromLocationCode: payload.fromLocationCode,
+      toLocationCode: code,
+      templateId: payload.templateId,
+      stationName: payload.stationName,
+    })
+
+    onDragStateChange?.({ draggingFrom: null, dropTarget: null })
+  }
+
   const cardClass = [
     'station-card',
     isUsed ? 'station-card--used' : 'station-card--available',
     !isActive ? 'station-card--inactive' : '',
     isSelected ? 'station-card--selected' : '',
     assignment?.locked ? 'station-card--locked' : '',
+    isDropTarget ? 'station-card--drop-target' : '',
+    canDrag ? 'station-card--draggable' : '',
   ]
     .filter(Boolean)
     .join(' ')
@@ -89,11 +156,17 @@ function StationSlot({
     <button
       type="button"
       className={cardClass}
+      draggable={canDrag}
       onClick={handleClick}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
       aria-label={
         isUsed
-          ? `${code}: ${assignment.station_name}`
-          : `${code}: Available`
+          ? `${code}: ${assignment.station_name}${canDrag ? '. Drag to move.' : ''}`
+          : `${code}: Available${!isUsed && isActive ? '. Drop zone.' : ''}`
       }
     >
       {isUsed && assignment.station_number != null && (
@@ -105,6 +178,11 @@ function StationSlot({
         {assignment?.locked && (
           <span className="station-lock-badge" aria-label="Locked">
             🔒
+          </span>
+        )}
+        {canDrag && (
+          <span className="station-drag-hint" aria-hidden="true">
+            ⋮⋮
           </span>
         )}
       </div>
@@ -123,7 +201,18 @@ function StationSlot({
   )
 }
 
-function renderZoneSlots(layout, area, assignmentMap, locations, selectedStationId, onStationClick) {
+function renderZoneSlots(
+  layout,
+  area,
+  assignmentMap,
+  locations,
+  selectedStationId,
+  dragState,
+  moveDisabled,
+  onStationClick,
+  onMoveRequest,
+  onDragStateChange,
+) {
   return layout
     .filter((slot) => slot.area === area)
     .map(({ code }) => {
@@ -137,7 +226,11 @@ function renderZoneSlots(layout, area, assignmentMap, locations, selectedStation
           assignment={assignment}
           isActive={isLocationActive(code, locations)}
           isSelected={selectedStationId != null && templateId === selectedStationId}
+          isDropTarget={dragState.dropTarget === code}
+          moveDisabled={moveDisabled}
           onStationClick={onStationClick}
+          onMoveRequest={onMoveRequest}
+          onDragStateChange={onDragStateChange}
         />
       )
     })
@@ -182,9 +275,27 @@ export default function CircuitMap({
   assignments = [],
   selectedStationId = null,
   onStationClick = () => {},
+  onMoveRequest = () => {},
+  moveDisabled = false,
   generated = true,
 }) {
+  const [dragState, setDragState] = useState({ draggingFrom: null, dropTarget: null })
   const assignmentMap = buildAssignmentMap(assignments)
+
+  const handleDragStateChange = (update) => {
+    setDragState((prev) => ({ ...prev, ...update }))
+  }
+
+  const slotProps = [
+    assignmentMap,
+    locations,
+    selectedStationId,
+    dragState,
+    moveDisabled,
+    onStationClick,
+    onMoveRequest,
+    handleDragStateChange,
+  ]
 
   return (
     <section className="circuit-map-card">
@@ -217,7 +328,11 @@ export default function CircuitMap({
                       isSelected={
                         selectedStationId != null && templateId === selectedStationId
                       }
+                      isDropTarget={dragState.dropTarget === code}
+                      moveDisabled={moveDisabled}
                       onStationClick={onStationClick}
+                      onMoveRequest={onMoveRequest}
+                      onDragStateChange={handleDragStateChange}
                     />
                   )
                 })}
@@ -228,34 +343,13 @@ export default function CircuitMap({
               <h3 className="zone-panel-title">Strength Floor</h3>
               <div className="zone-strength-grid">
                 <div className="strength-top">
-                  {renderZoneSlots(
-                    STRENGTH_LAYOUT,
-                    'top',
-                    assignmentMap,
-                    locations,
-                    selectedStationId,
-                    onStationClick,
-                  )}
+                  {renderZoneSlots(STRENGTH_LAYOUT, 'top', ...slotProps)}
                 </div>
                 <div className="strength-left">
-                  {renderZoneSlots(
-                    STRENGTH_LAYOUT,
-                    'left',
-                    assignmentMap,
-                    locations,
-                    selectedStationId,
-                    onStationClick,
-                  )}
+                  {renderZoneSlots(STRENGTH_LAYOUT, 'left', ...slotProps)}
                 </div>
                 <div className="strength-bottom">
-                  {renderZoneSlots(
-                    STRENGTH_LAYOUT,
-                    'bottom',
-                    assignmentMap,
-                    locations,
-                    selectedStationId,
-                    onStationClick,
-                  )}
+                  {renderZoneSlots(STRENGTH_LAYOUT, 'bottom', ...slotProps)}
                 </div>
               </div>
             </div>
@@ -264,34 +358,13 @@ export default function CircuitMap({
               <h3 className="zone-panel-title">Gym Floor</h3>
               <div className="zone-gym-grid">
                 <div className="gym-left">
-                  {renderZoneSlots(
-                    GYM_LAYOUT,
-                    'left',
-                    assignmentMap,
-                    locations,
-                    selectedStationId,
-                    onStationClick,
-                  )}
+                  {renderZoneSlots(GYM_LAYOUT, 'left', ...slotProps)}
                 </div>
                 <div className="gym-right">
-                  {renderZoneSlots(
-                    GYM_LAYOUT,
-                    'right',
-                    assignmentMap,
-                    locations,
-                    selectedStationId,
-                    onStationClick,
-                  )}
+                  {renderZoneSlots(GYM_LAYOUT, 'right', ...slotProps)}
                 </div>
                 <div className="gym-bottom">
-                  {renderZoneSlots(
-                    GYM_LAYOUT,
-                    'bottom',
-                    assignmentMap,
-                    locations,
-                    selectedStationId,
-                    onStationClick,
-                  )}
+                  {renderZoneSlots(GYM_LAYOUT, 'bottom', ...slotProps)}
                 </div>
               </div>
             </div>

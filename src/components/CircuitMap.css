@@ -230,8 +230,32 @@
   border-color: var(--pink-dark);
 }
 
-.station-card--inactive {
-  opacity: 0.4;
+.station-card--draggable {
+  cursor: grab;
+}
+
+.station-card--draggable:active {
+  cursor: grabbing;
+}
+
+.station-card--drop-target {
+  border-color: var(--pink) !important;
+  border-style: dashed !important;
+  background: var(--surface-blush) !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 0 3px rgba(255, 47, 143, 0.2);
+}
+
+.station-drag-hint {
+  font-size: 0.625rem;
+  letter-spacing: -0.15em;
+  color: var(--muted);
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.station-card--used .station-drag-hint {
+  color: var(--berry);
 }
 
 /* Station number badge — top-left circle */

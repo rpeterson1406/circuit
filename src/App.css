@@ -773,6 +773,15 @@
   justify-content: flex-end;
 }
 
+.modal-actions-split {
+  gap: 0.75rem;
+}
+
+.btn-generate-sm {
+  padding: 0.6875rem 1.5rem;
+  font-size: var(--font-sm);
+}
+
 .modal-actions button {
   font: inherit;
   font-weight: 600;

@@ -14,7 +14,7 @@ export default function SwapModal({
         role="dialog"
         aria-labelledby="swap-modal-title"
       >
-        <h2 id="swap-modal-title">Swap Station</h2>
+        <h2 id="swap-modal-title">Change Station</h2>
         <p className="panel-description">
           Replace &quot;{row.stationName}&quot; at {row.locationCode} with another eligible station.
           The location stays the same.

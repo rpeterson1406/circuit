@@ -85,3 +85,21 @@ export function clearCircuitRow(row) {
 export function toggleRowLock(row) {
   return { ...row, locked: !row.locked, manuallyEdited: true }
 }
+
+export function findCircuitRowForMapLocation(circuit, locationCode, templateId) {
+  return circuit.find(
+    (row) =>
+      row.templateId === templateId &&
+      row.locationCode &&
+      row.locationCode !== '—' &&
+      expandLocationCodes(row.locationCode).includes(locationCode),
+  )
+}
+
+export function applyMoveToLocation(row, targetLocationCode) {
+  return {
+    ...row,
+    locationCode: targetLocationCode,
+    manuallyEdited: true,
+  }
+}
