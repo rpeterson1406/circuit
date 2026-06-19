@@ -49,10 +49,10 @@ export default function WarningsPanel({
 
   return (
     <section className="insights-panel">
-      <h2>Class Insights</h2>
+      <h2>Rules Engine Insights</h2>
 
       {!generated ? (
-        <p className="insights-empty">Generate a circuit to see class insights.</p>
+        <p className="insights-empty">Generate a circuit to see rules engine insights.</p>
       ) : (
         <>
           <div className="insights-summary">

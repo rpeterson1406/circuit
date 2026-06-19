@@ -323,7 +323,7 @@
   align-items: start;
 }
 
-/* ── Class Insights panel ── */
+/* ── Rules Engine Insights panel ── */
 
 .insights-panel {
   background: linear-gradient(180deg, var(--surface-blush) 0%, var(--surface-soft) 100%);

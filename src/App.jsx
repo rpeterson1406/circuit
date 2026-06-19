@@ -377,7 +377,7 @@ export default function App() {
               setSelectedMapStationId(stationTemplateId ?? null)
             }}
             onMoveRequest={handleMapMoveRequest}
-            moveDisabled={Boolean(pendingMove)}
+            moveDisabled={Boolean(pendingMove) || !generated}
             generated={generated}
           />
           <WarningsPanel

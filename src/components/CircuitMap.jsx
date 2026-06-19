@@ -277,10 +277,11 @@ export default function CircuitMap({
   onStationClick = () => {},
   onMoveRequest = () => {},
   moveDisabled = false,
-  generated = true,
+  generated = false,
 }) {
   const [dragState, setDragState] = useState({ draggingFrom: null, dropTarget: null })
   const assignmentMap = buildAssignmentMap(assignments)
+  const interactionsDisabled = moveDisabled || !generated
 
   const handleDragStateChange = (update) => {
     setDragState((prev) => ({ ...prev, ...update }))
@@ -291,14 +292,14 @@ export default function CircuitMap({
     locations,
     selectedStationId,
     dragState,
-    moveDisabled,
+    interactionsDisabled,
     onStationClick,
     onMoveRequest,
     handleDragStateChange,
   ]
 
   return (
-    <section className="circuit-map-card">
+    <section className={`circuit-map-card${generated ? '' : ' circuit-map-card--preview'}`}>
       <div className="circuit-map-header">
         <h2>
           <span aria-hidden="true">🏋️</span> Circuit Station Map
@@ -306,10 +307,11 @@ export default function CircuitMap({
         <p className="circuit-map-tagline">Move with purpose. Lead with strength. ♡</p>
       </div>
 
-      {!generated ? (
-        <p className="empty-state">Generate a circuit to see the map layout.</p>
-      ) : (
-        <div className="circuit-map-layout">
+      {!generated && (
+        <p className="circuit-map-hint">Generate a circuit to assign exercises to stations.</p>
+      )}
+
+      <div className={`circuit-map-layout${generated ? '' : ' circuit-map-layout--preview'}`}>
           <div className="circuit-map-zones">
             <div className="zone-panel zone-panel--outdoor">
               <h3 className="zone-panel-title">Outdoor Area</h3>
@@ -329,7 +331,7 @@ export default function CircuitMap({
                         selectedStationId != null && templateId === selectedStationId
                       }
                       isDropTarget={dragState.dropTarget === code}
-                      moveDisabled={moveDisabled}
+                      moveDisabled={interactionsDisabled}
                       onStationClick={onStationClick}
                       onMoveRequest={onMoveRequest}
                       onDragStateChange={handleDragStateChange}
@@ -372,7 +374,6 @@ export default function CircuitMap({
 
           <MapLegend />
         </div>
-      )}
     </section>
   )
 }

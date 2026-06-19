@@ -37,6 +37,33 @@
   letter-spacing: 0.01em;
 }
 
+.circuit-map-hint {
+  margin: 0 0 1rem;
+  font-size: var(--font-sm);
+  color: var(--muted);
+}
+
+.circuit-map-layout--preview .station-card--available {
+  background: #e8e4e6;
+  border: 1.5px dashed #c4bcc0;
+  opacity: 1;
+  color: #8a8086;
+  cursor: default;
+}
+
+.circuit-map-layout--preview .station-card--available:hover {
+  border-color: #c4bcc0;
+  opacity: 1;
+}
+
+.circuit-map-layout--preview .station-code {
+  color: #7a7278;
+}
+
+.circuit-map-layout--preview .station-available-label {
+  color: #9a9298;
+}
+
 .circuit-map-layout {
   display: flex;
   gap: 1.25rem;
