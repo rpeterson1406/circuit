@@ -4,6 +4,7 @@ import { sortCircuitRowsByLocation } from '../lib/locations'
 export default function CircuitTable({
   circuit,
   generated,
+  readOnly = false,
   onLock,
   onSwap,
   onRemove,
@@ -40,7 +41,7 @@ export default function CircuitTable({
                 <th>Planner Category</th>
                 <th>Equipment Required</th>
                 <th>Round Count</th>
-                <th>Actions</th>
+                {!readOnly && <th>Actions</th>}
               </tr>
             </thead>
             <tbody>
@@ -63,34 +64,36 @@ export default function CircuitTable({
                     <td>{row.plannerCategory}</td>
                     <td>{row.equipmentRequired}</td>
                     <td>{row.roundCount}</td>
-                    <td className="actions-cell">
-                      <button
-                        type="button"
-                        className={`btn-table btn-lock${row.locked ? ' is-active' : ''}`}
-                        onClick={() => onLock(row.id)}
-                        disabled={isEmpty}
-                        title={row.locked ? 'Unlock station' : 'Lock station in place'}
-                      >
-                        {row.locked ? 'Unlock' : 'Lock'}
-                      </button>
-                      <button
-                        type="button"
-                        className="btn-table btn-swap"
-                        onClick={() => onSwap(row.id)}
-                        disabled={isEmpty}
-                        title="Replace with another eligible station"
-                      >
-                        Change
-                      </button>
-                      <button
-                        type="button"
-                        className="btn-table btn-remove"
-                        onClick={() => onRemove(row.id)}
-                        title="Clear this row"
-                      >
-                        Remove
-                      </button>
-                    </td>
+                    {!readOnly && (
+                      <td className="actions-cell">
+                        <button
+                          type="button"
+                          className={`btn-table btn-lock${row.locked ? ' is-active' : ''}`}
+                          onClick={() => onLock(row.id)}
+                          disabled={isEmpty}
+                          title={row.locked ? 'Unlock station' : 'Lock station in place'}
+                        >
+                          {row.locked ? 'Unlock' : 'Lock'}
+                        </button>
+                        <button
+                          type="button"
+                          className="btn-table btn-swap"
+                          onClick={() => onSwap(row.id)}
+                          disabled={isEmpty}
+                          title="Replace with another eligible station"
+                        >
+                          Change
+                        </button>
+                        <button
+                          type="button"
+                          className="btn-table btn-remove"
+                          onClick={() => onRemove(row.id)}
+                          title="Clear this row"
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    )}
                   </tr>
                 )
               })}

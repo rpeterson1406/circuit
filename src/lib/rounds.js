@@ -1,7 +1,7 @@
 import { isTruthy } from './stationSelector'
 
 export function getClassRoundCount(stationCount) {
-  return Number(stationCount) <= 11 ? 4 : 3
+  return Number(stationCount) <= 12 ? 4 : 3
 }
 
 export function buildRoundCountMap(stationRounds = []) {

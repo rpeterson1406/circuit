@@ -299,6 +299,40 @@
   cursor: not-allowed;
 }
 
+.load-class-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+  margin-top: 1rem;
+}
+
+.load-class-row .form-field {
+  flex: 1 1 16rem;
+  margin: 0;
+}
+
+.btn-load-class {
+  font: inherit;
+  font-weight: 700;
+  font-size: var(--font-base);
+  padding: 0.8125rem 1.5rem;
+  border: 2px solid var(--plum);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--plum);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-load-class:hover:not(:disabled) {
+  background: var(--surface-blush);
+}
+
+.btn-load-class:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .save-message {
   margin: 0;
   font-size: var(--font-sm);
@@ -311,6 +345,180 @@
 
 .save-message.error {
   color: var(--warning);
+}
+
+.my-classes-page,
+.saved-class-controls {
+  margin-bottom: 1.25rem;
+}
+
+.my-classes-header {
+  margin-bottom: 1.25rem;
+}
+
+.my-classes-header h1,
+.saved-class-controls + .planner-grid h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: var(--plum);
+}
+
+.my-classes-card,
+.my-classes-upload-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 1.375rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.my-classes-card {
+  margin-bottom: 1.25rem;
+}
+
+.my-classes-upload-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: var(--font-lg);
+  color: var(--plum);
+}
+
+.my-classes-link {
+  font: inherit;
+  font-weight: 700;
+  color: var(--pink-dark);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.my-classes-link:hover {
+  text-decoration: underline;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  text-transform: capitalize;
+  background: var(--surface-blush);
+  color: var(--plum);
+}
+
+.status-pill-saved {
+  background: #e4e4e8;
+  color: #6f6f78;
+  cursor: default;
+}
+
+.status-pill-edit {
+  border: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+  align-self: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.status-pill-edit:hover {
+  background: #f5d4e4;
+}
+
+.status-pill-delete {
+  border: 1.5px solid #c0392b;
+  background: transparent;
+  color: #c0392b;
+  cursor: pointer;
+  flex: 0 0 auto;
+  align-self: center;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.status-pill-delete:hover {
+  background: rgba(192, 57, 43, 0.08);
+}
+
+.my-classes-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.saved-class-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.saved-class-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-text-link {
+  font: inherit;
+  font-weight: 700;
+  color: var(--pink-dark);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn-text-link:hover {
+  text-decoration: underline;
+}
+
+.btn-danger,
+.btn-danger-outline {
+  font: inherit;
+  font-weight: 700;
+  font-size: var(--font-base);
+  padding: 0.8125rem 1.5rem;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-danger {
+  border: 2px solid #c0392b;
+  background: #c0392b;
+  color: #fff;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #a93226;
+  border-color: #a93226;
+}
+
+.btn-danger-outline {
+  border: 2px solid #c0392b;
+  background: transparent;
+  color: #c0392b;
+}
+
+.btn-danger-outline:hover:not(:disabled) {
+  background: rgba(192, 57, 43, 0.08);
+}
+
+.btn-danger:disabled,
+.btn-danger-outline:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sidebar-nav-item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 /* ── Planner grid ── */

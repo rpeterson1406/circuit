@@ -32,8 +32,24 @@ export function inferViolationType(message) {
   return 'other'
 }
 
+function flattenWarnings(warnings) {
+  if (Array.isArray(warnings)) {
+    return warnings
+  }
+
+  if (!warnings || typeof warnings !== 'object') {
+    return []
+  }
+
+  return [
+    ...(warnings.locationWarnings ?? []),
+    ...(warnings.categoryWarnings ?? []),
+    ...(warnings.otherWarnings ?? []),
+  ]
+}
+
 export function warningsToViolations(warnings) {
-  return warnings.map((message) => ({
+  return flattenWarnings(warnings).map((message) => ({
     violation_type: inferViolationType(message),
     message,
   }))

@@ -13,6 +13,87 @@ function buildTemplateMap(stationTemplates) {
   return new Map(stationTemplates.map((template) => [template.id, template]))
 }
 
+function buildExerciseById(exercises = []) {
+  return new Map(exercises.filter((exercise) => exercise.id).map((exercise) => [exercise.id, exercise]))
+}
+
+function buildRoundsByTemplateId(stationRounds = []) {
+  const map = new Map()
+
+  for (const round of stationRounds) {
+    const templateId = round.station_template_id
+    if (!templateId) continue
+
+    if (!map.has(templateId)) {
+      map.set(templateId, [])
+    }
+
+    map.get(templateId).push(round)
+  }
+
+  for (const rounds of map.values()) {
+    rounds.sort((left, right) => left.round_number - right.round_number)
+  }
+
+  return map
+}
+
+function buildStationExerciseRows({
+  classStationId,
+  circuitRow,
+  template,
+  templateRounds,
+  exerciseById,
+}) {
+  const roundCount = Number(circuitRow.roundCount)
+  const maxRound =
+    Number.isFinite(roundCount) && roundCount > 0
+      ? roundCount
+      : templateRounds.length
+
+  const applicableRounds = templateRounds.filter((round) => round.round_number <= maxRound)
+
+  return applicableRounds.map((round, index) => {
+    const exercise = round.exercise_id ? exerciseById.get(round.exercise_id) : null
+    const roundDescription = round.round_description?.trim() || null
+
+    if (exercise) {
+      return {
+        class_station_id: classStationId,
+        exercise_id: round.exercise_id,
+        round_number: round.round_number,
+        round_start: round.round_number,
+        round_end: round.round_number,
+        sequence_order: index + 1,
+        exercise_name_snapshot: exercise.exercise_name ?? null,
+        exercise_family_snapshot: exercise.exercise_family ?? null,
+        round_instructions_snapshot: roundDescription ?? exercise.directions?.trim() ?? null,
+        notes: exercise.notes?.trim() || null,
+      }
+    }
+
+    return {
+      class_station_id: classStationId,
+      exercise_id: null,
+      round_number: round.round_number,
+      round_start: round.round_number,
+      round_end: round.round_number,
+      sequence_order: index + 1,
+      exercise_name_snapshot: template?.station_name ?? null,
+      exercise_family_snapshot: template?.station_family ?? null,
+      round_instructions_snapshot: roundDescription,
+      notes: null,
+    }
+  })
+}
+
+function resolveUsedOn(classDate) {
+  const trimmed = classDate?.trim()
+  if (trimmed) return trimmed
+
+  return new Date().toISOString().slice(0, 10)
+}
+
 export async function saveClass({
   classDate,
   className,
@@ -23,9 +104,13 @@ export async function saveClass({
   warnings,
   stationTemplates,
   stationLocations,
+  stationRounds = [],
+  exercises = [],
 }) {
   const locationByCode = buildLocationIdMap(stationLocations)
   const templateById = buildTemplateMap(stationTemplates)
+  const roundsByTemplateId = buildRoundsByTemplateId(stationRounds)
+  const exerciseById = buildExerciseById(exercises)
 
   const stationsToSave = circuit.filter(
     (row) => row.templateId && row.locationCode && row.locationCode !== '—',
@@ -72,12 +157,43 @@ export async function saveClass({
     manually_edited: Boolean(row.manuallyEdited),
   }))
 
-  const { error: classStationsError } = await supabase
+  const { data: insertedStations, error: classStationsError } = await supabase
     .from('class_stations')
     .insert(classStationRows)
+    .select('id, station_number, station_template_id')
 
   if (classStationsError) {
     throw new Error(classStationsError.message)
+  }
+
+  const classStationIdByNumber = new Map(
+    (insertedStations ?? []).map((station) => [station.station_number, station.id]),
+  )
+
+  const stationExerciseRows = stationsToSave.flatMap((row) => {
+    const classStationId = classStationIdByNumber.get(row.stationNumber)
+    if (!classStationId) return []
+
+    const template = templateById.get(row.templateId)
+    const templateRounds = roundsByTemplateId.get(row.templateId) ?? []
+
+    return buildStationExerciseRows({
+      classStationId,
+      circuitRow: row,
+      template,
+      templateRounds,
+      exerciseById,
+    })
+  })
+
+  if (stationExerciseRows.length > 0) {
+    const { error: stationExercisesError } = await supabase
+      .from('class_station_exercises')
+      .insert(stationExerciseRows)
+
+    if (stationExercisesError) {
+      throw new Error(stationExercisesError.message)
+    }
   }
 
   const violationRows = warningsToViolations(warnings).map((violation) => ({
@@ -96,6 +212,8 @@ export async function saveClass({
     }
   }
 
+  const usedOn = resolveUsedOn(classDate)
+
   const usageRows = stationsToSave
     .map((row) => {
       const template = templateById.get(row.templateId)
@@ -106,6 +224,7 @@ export async function saveClass({
         class_plan_id: classPlanId,
         station_template_id: row.templateId,
         exercise_family: exerciseFamily,
+        used_on: usedOn,
       }
     })
     .filter(Boolean)

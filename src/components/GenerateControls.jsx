@@ -14,6 +14,7 @@ export default function GenerateControls({
   onClassNameChange,
   onNotesChange,
   onStationCountChange,
+  onClassRoundCountChange,
   onRepeatWindowDaysChange,
   onGenerate,
   onSave,
@@ -64,8 +65,14 @@ export default function GenerateControls({
           </label>
 
           <label className="form-field">
-            <span>Repeat Window (Classes)</span>
-            <input type="text" value={classRoundCount} readOnly aria-readonly="true" />
+            <span>Rounds</span>
+            <select
+              value={classRoundCount}
+              onChange={(event) => onClassRoundCountChange(Number(event.target.value))}
+            >
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+            </select>
           </label>
 
           <label className="form-field">

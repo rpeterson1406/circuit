@@ -1,14 +1,14 @@
-const NAV_ITEMS = [
-  { id: 'create', label: 'Create Class', active: true },
-  { id: 'classes', label: 'My Classes', active: false },
-  { id: 'exercises', label: 'Exercise Library', active: false },
-  { id: 'templates', label: 'Station Templates', active: false },
-  { id: 'equipment', label: 'Equipment', active: false },
-  { id: 'reports', label: 'Reports', active: false },
-  { id: 'settings', label: 'Settings', active: false },
-]
+export default function Sidebar({ activeView, onNavigate }) {
+  const navItems = [
+    { id: 'create', label: 'Create Class' },
+    { id: 'classes', label: 'My Classes' },
+    { id: 'exercises', label: 'Exercise Library', disabled: true },
+    { id: 'templates', label: 'Station Templates', disabled: true },
+    { id: 'equipment', label: 'Equipment', disabled: true },
+    { id: 'reports', label: 'Reports', disabled: true },
+    { id: 'settings', label: 'Settings', disabled: true },
+  ]
 
-export default function Sidebar() {
   return (
     <aside className="sidebar" aria-label="Main navigation">
       <div className="sidebar-logo">
@@ -21,12 +21,18 @@ export default function Sidebar() {
 
       <nav className="sidebar-nav">
         <ul>
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <li key={item.id}>
               <button
                 type="button"
-                className={`sidebar-nav-item${item.active ? ' is-active' : ''}`}
-                aria-current={item.active ? 'page' : undefined}
+                className={`sidebar-nav-item${activeView === item.id ? ' is-active' : ''}`}
+                aria-current={activeView === item.id ? 'page' : undefined}
+                disabled={item.disabled}
+                onClick={() => {
+                  if (!item.disabled) {
+                    onNavigate(item.id)
+                  }
+                }}
               >
                 {item.label}
               </button>

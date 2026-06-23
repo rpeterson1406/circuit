@@ -1,0 +1,3735 @@
+{
+  "summary": {
+    "generatedAt": "2026-06-22T20:39:33.902Z",
+    "totalFindings": 412,
+    "filesScanned": 19,
+    "byCategory": {
+      "Class Structure": 34,
+      "Floor Location": 118,
+      "Station": 15,
+      "Equipment": 75,
+      "Exercise Selection": 31,
+      "Category Balance": 13,
+      "Load / Fatigue": 26,
+      "Transition / Setup": 0,
+      "Overrides / Warnings": 68,
+      "Planner Algorithm Logic": 7,
+      "UI Validation": 25
+    },
+    "byRecommendation": {
+      "hybrid — keep orchestration in code, externalize thresholds": 47,
+      "keep in code": 92,
+      "move to rules engine": 273
+    }
+  },
+  "findings": [
+    {
+      "file": "src/App.jsx",
+      "line": 30,
+      "nodeKind": "IfStatement",
+      "functionName": "formatClassNameFromDate",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!isoDate) return ''"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 44,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "Station",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "row.templateId ? `${row.templateId}-${index + 1}` : `empty-${index + 1}`"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 141,
+      "nodeKind": "IfStatement",
+      "functionName": "runValidation",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!referenceData) { return { locationWarnings: [], categoryWarnings: [], otherWarnings: [], } }"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 167,
+      "nodeKind": "IfStatement",
+      "functionName": "updateCircuit",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (generated) { setWarnings(applyValidation(nextCircuit)) }"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 173,
+      "nodeKind": "IfStatement",
+      "functionName": "handleGenerate",
+      "category": "Class Structure",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!referenceData) return"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 207,
+      "nodeKind": "IfStatement",
+      "functionName": "handleSwapSelect",
+      "category": "Class Structure",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!swapRowId) return"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 210,
+      "nodeKind": "IfStatement",
+      "functionName": "handleSwapSelect",
+      "category": "Class Structure",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!row) { setSwapRowId(null) return }"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 217,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "handleSwapSelect",
+      "category": "Class Structure",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "entry.id === swapRowId ? applySwapTemplate(entry, template, { roundCountMap, classRoundCount, }) : entry"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 229,
+      "nodeKind": "IfStatement",
+      "functionName": "handleRemove",
+      "category": "Station",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (swapRowId === rowId) { setSwapRowId(null) }"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 235,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "handleRemove",
+      "category": "Station",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "row.id === rowId ? clearCircuitRow(row) : row"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 247,
+      "nodeKind": "IfStatement",
+      "functionName": "handleMapMoveRequest",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!row) return"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 251,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "nextCircuit",
+      "category": "Floor Location",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "entry.id === row.id ? applyMoveToLocation(entry, toLocationCode) : entry"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 257,
+      "nodeKind": "IfStatement",
+      "functionName": "handleMapMoveRequest",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (generated) { setWarnings(applyValidation(nextCircuit)) }"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 274,
+      "nodeKind": "IfStatement",
+      "functionName": "handleMoveCancel",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!pendingMove) return"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 277,
+      "nodeKind": "IfStatement",
+      "functionName": "handleMoveCancel",
+      "category": "Overrides / Warnings",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (generated) { setWarnings(applyValidation(pendingMove.previousCircuit)) }"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 290,
+      "nodeKind": "IfStatement",
+      "functionName": "handleSave",
+      "category": "Class Structure",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!referenceData || !canSave) return"
+    },
+    {
+      "file": "src/App.jsx",
+      "line": 323,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "App",
+      "category": "Class Structure",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "swapRow && referenceData ? getEligibleSwapTemplates({ row: swapRow, circuit, stationTemplates: referenceData.stationTemplates, equipmentAllowedLocations: referenceData.equipmentAllowedLocations, }) : []"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 5,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "keep in code",
+      "snippet": "OUTDOOR_LOCATIONS = ['O1', 'O2', 'O3', 'O4']"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 7,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "keep in code",
+      "snippet": "STRENGTH_LAYOUT = [ { code: 'S2', area: 'top' }, { code: 'S4', area: 'top' }, { code: 'S5', area: 'top' }, { code: 'S6', area: 'top' }, { code: 'S3', area: 'left' }, { code: 'S1', area: 'left' }, { code: 'S9', area: '..."
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 19,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "GYM_LAYOUT = [ { code: 'G7', area: 'left' }, { code: 'G6', area: 'left' }, { code: 'G1', area: 'right' }, { code: 'G2', area: 'right' }, { code: 'G3', area: 'right' }, { code: 'G5', area: 'bottom' }, { code: 'G4', are..."
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 32,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildAssignmentMap",
+      "category": "Floor Location",
+      "recommendation": "keep in code",
+      "snippet": "for (const assignment of assignments) { const locationCode = assignment.location_code ?? assignment.location if (!locationCode) continue for (const code of expandLocationCodes(locationCode)) { map.set(code, { ...assig..."
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 34,
+      "nodeKind": "IfStatement",
+      "functionName": "buildAssignmentMap",
+      "category": "Floor Location",
+      "recommendation": "keep in code",
+      "snippet": "if (!locationCode) continue"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 36,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildAssignmentMap",
+      "category": "Floor Location",
+      "recommendation": "keep in code",
+      "snippet": "for (const code of expandLocationCodes(locationCode)) { map.set(code, { ...assignment, location_code: code, }) }"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 52,
+      "nodeKind": "IfStatement",
+      "functionName": "isLocationActive",
+      "category": "Floor Location",
+      "recommendation": "keep in code",
+      "snippet": "if (!locations || locations.length === 0) return true"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 85,
+      "nodeKind": "IfStatement",
+      "functionName": "handleDragStart",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "if (!canDrag) { event.preventDefault() return }"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 107,
+      "nodeKind": "IfStatement",
+      "functionName": "handleDragOver",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "if (!isActive || isUsed || moveDisabled) return"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 119,
+      "nodeKind": "IfStatement",
+      "functionName": "handleDrop",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "if (!isActive || isUsed || moveDisabled) return"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 130,
+      "nodeKind": "IfStatement",
+      "functionName": "handleDrop",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "if (!payload?.fromLocationCode || !payload?.templateId) return"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 131,
+      "nodeKind": "IfStatement",
+      "functionName": "handleDrop",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "if (payload.fromLocationCode === code) return"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 145,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "isUsed ? 'station-card--used' : 'station-card--available'"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 146,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "!isActive ? 'station-card--inactive' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 147,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "isSelected ? 'station-card--selected' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 148,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "assignment?.locked ? 'station-card--locked' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 149,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "isDropTarget ? 'station-card--drop-target' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 150,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "canDrag ? 'station-card--draggable' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 167,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "isUsed ? `${code}: ${assignment.station_name}${canDrag ? '. Drag to move.' : ''}` : `${code}: Available${!isUsed && isActive ? '. Drop zone.' : ''}`"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 168,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "canDrag ? '. Drag to move.' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 169,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "!isUsed && isActive ? '. Drop zone.' : ''"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 190,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "StationSlot",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "isUsed ? ( <> <p className=\"station-name\">{assignment.station_name}</p> {assignment.equipment_required && assignment.equipment_required !== '—' && ( <p className=\"station-equipment\">{assignment.equipment_required}</p>..."
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 290,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "CircuitMap",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "slotProps = [ assignmentMap, locations, selectedStationId, dragState, interactionsDisabled, onStationClick, onMoveRequest, handleDragStateChange, ]"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 302,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "CircuitMap",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "generated ? '' : ' circuit-map-card--preview'"
+    },
+    {
+      "file": "src/components/CircuitMap.jsx",
+      "line": 314,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "CircuitMap",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "generated ? '' : ' circuit-map-layout--preview'"
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 16,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "displayRows",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "row.templateId ? ++stationCount : '—'"
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 28,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "CircuitTable",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "!generated ? ( <p className=\"empty-state\">Generate a circuit to see proposed stations.</p> ) : circuit.length === 0 ? ( <p className=\"empty-state\">No stations were assigned. Check warnings for details.</p> ) : ( <div ..."
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 30,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "CircuitTable",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "circuit.length === 0 ? ( <p className=\"empty-state\">No stations were assigned. Check warnings for details.</p> ) : ( <div className=\"table-wrap\"> <table className=\"circuit-table\"> <thead> <tr> <th>Station #</th> <th>L..."
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 54,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "row.locked ? 'row-locked' : ''"
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 55,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "isEmpty ? 'row-cleared' : ''"
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 69,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "row.locked ? ' is-active' : ''"
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 72,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "row.locked ? 'Unlock station' : 'Lock station in place'"
+    },
+    {
+      "file": "src/components/CircuitTable.jsx",
+      "line": 74,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "row.locked ? 'Unlock' : 'Lock'"
+    },
+    {
+      "file": "src/components/GenerateControls.jsx",
+      "line": 105,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "GenerateControls",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "generating ? 'Generating…' : 'Generate Circuit'"
+    },
+    {
+      "file": "src/components/MoveConfirmModal.jsx",
+      "line": 6,
+      "nodeKind": "IfStatement",
+      "functionName": "MoveConfirmModal",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "if (!move) return null"
+    },
+    {
+      "file": "src/components/SwapModal.jsx",
+      "line": 7,
+      "nodeKind": "IfStatement",
+      "functionName": "SwapModal",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "if (!row) return null"
+    },
+    {
+      "file": "src/components/SwapModal.jsx",
+      "line": 23,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "SwapModal",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "candidates.length === 0 ? ( <p className=\"empty-state\">No eligible replacement stations for this location.</p> ) : ( <ul className=\"swap-list\"> {candidates.map((template) => ( <li key={template.id}> <button type=\"butt..."
+    },
+    {
+      "file": "src/components/WarningsPanel.jsx",
+      "line": 6,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "RuleCheckRow",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "isViolation ? ' rule-check-row--warn' : ''"
+    },
+    {
+      "file": "src/components/WarningsPanel.jsx",
+      "line": 8,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "RuleCheckRow",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "isViolation ? '!' : '✓'"
+    },
+    {
+      "file": "src/components/WarningsPanel.jsx",
+      "line": 54,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "WarningsPanel",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "!generated ? ( <p className=\"insights-empty\">Generate a circuit to see rules engine insights.</p> ) : ( <> <div className=\"insights-summary\"> <div className=\"insights-stat\"> <span className=\"insights-stat-label\">Stati..."
+    },
+    {
+      "file": "src/components/WarningsPanel.jsx",
+      "line": 126,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "target > 0 ? Math.min(100, (actual / target) * 100) : 0"
+    },
+    {
+      "file": "src/components/WarningsPanel.jsx",
+      "line": 139,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "isMismatch ? ' category-progress-fill--warn' : ''"
+    },
+    {
+      "file": "src/components/WarningsPanel.jsx",
+      "line": 166,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "WarningsPanel",
+      "category": "UI Validation",
+      "recommendation": "keep in code",
+      "snippet": "locationWarnings.length === 0 ? ( <p className=\"insights-ok\">All locations look good.</p> ) : ( <ul className=\"insights-notes-list insights-notes-list--warn\"> {locationWarnings.map((warning, index) => ( <li key={`loca..."
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 6,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getAvailableLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function getAvailableLocations(stationLocations) { const fromDb = stationLocations .map((row) => row.location_code) .filter((code) => isKnownLocation(code)) if (fromDb.length > ..."
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 11,
+      "nodeKind": "IfStatement",
+      "functionName": "getAvailableLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (fromDb.length > 0) { return ALL_LOCATION_CODES.filter((code) => fromDb.includes(code)) }"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 48,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "generateCircuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "export function generateCircuit({ stationCount, classRoundCount, stationTemplates, stationRounds = [], stationLocations, locationConflicts, equipmentAllowedLocations, existingCi..."
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 58,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "generateCircuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 109,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "generateCircuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "assignmentQueue = [...templatesForAssignment]"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 110,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "generateCircuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "circuit = []"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 113,
+      "nodeKind": "ForStatement",
+      "functionName": "generateCircuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "for (let index = 0; index < stationCount; index += 1) { const existingRow = existingRows[index] if (existingRow?.locked && existingRow.templateId) { const template = templateById.get(existingRow.templateId) circuit.pu..."
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 116,
+      "nodeKind": "IfStatement",
+      "functionName": "generateCircuit",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (existingRow?.locked && existingRow.templateId) { const template = templateById.get(existingRow.templateId) circuit.push({ ...existingRow, roundCount: template ? getTemplateRoundCount(template, roundCountMap, class..."
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 120,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "generateCircuit",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "template ? getTemplateRoundCount(template, roundCountMap, classRoundCount) : existingRow.roundCount"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 128,
+      "nodeKind": "IfStatement",
+      "functionName": "generateCircuit",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (existingRow && !existingRow.templateId) { circuit.push(buildEmptyRow(index + 1, existingRow)) continue }"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 134,
+      "nodeKind": "IfStatement",
+      "functionName": "generateCircuit",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!template) { circuit.push(buildEmptyRow(index + 1, existingRow)) continue }"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 150,
+      "nodeKind": "WhileStatement",
+      "functionName": "generateCircuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "while (circuit.length < stationCount) { const template = assignmentQueue.shift() if (!template) { circuit.push(buildEmptyRow(circuit.length + 1)) continue } circuit.push( createStationRow( circuit.length + 1, template..."
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 152,
+      "nodeKind": "IfStatement",
+      "functionName": "generateCircuit",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!template) { circuit.push(buildEmptyRow(circuit.length + 1)) continue }"
+    },
+    {
+      "file": "src/lib/circuitGenerator.js",
+      "line": 172,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "circuit",
+      "category": "Planner Algorithm Logic",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "row.templateId ? `${row.templateId}-${index + 1}` : row.id ?? `empty-${index + 1}`"
+    },
+    {
+      "file": "src/lib/fetchReferenceData.js",
+      "line": 33,
+      "nodeKind": "IfStatement",
+      "functionName": "fetchReferenceData",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (errors.length > 0) { throw new Error(errors[0].message) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 4,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "EQUIPMENT_TYPES = { CABLE: 'cable', CABLE_DUAL: 'cable_dual', TRX: 'trx', SKI_ERG: 'ski_erg', REBOUNDER: 'rebounder', LEG_SLED: 'leg_sled', WEIGHT_BENCH: 'weight_bench', MOVABLE: 'movable', }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 15,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "ALLOWED_LOCATIONS_BY_TYPE = { [EQUIPMENT_TYPES.CABLE]: ['S1', 'S2'], [EQUIPMENT_TYPES.CABLE_DUAL]: ['S1', 'S2'], [EQUIPMENT_TYPES.TRX]: ['S3'], [EQUIPMENT_TYPES.SKI_ERG]: ['S6'], [EQUIPMENT_TYPES.REBOUNDER]: ['G4'], [..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 29,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "ADJACENT_BENCH_PAIRS = [ ['S4', 'S5'], ['S7', 'S8'], ['S8', 'S9'], ['G1', 'G2'], ['G2', 'G3'], ['G6', 'G7'], ]"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 38,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "ASSIGNMENT_PRIORITY = { [EQUIPMENT_TYPES.CABLE_DUAL]: 1, [EQUIPMENT_TYPES.TRX]: 2, [EQUIPMENT_TYPES.SKI_ERG]: 3, [EQUIPMENT_TYPES.REBOUNDER]: 4, [EQUIPMENT_TYPES.LEG_SLED]: 5, [EQUIPMENT_TYPES.CABLE]: 6, [EQUIPMENT_TY..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 49,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "MAX_WEIGHT_BENCH_STATIONS = 2"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 50,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "MAX_LEG_SLED_STATIONS = 1"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 52,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "EQUIPMENT_CAPACITY = { [EQUIPMENT_TYPES.TRX]: 1, [EQUIPMENT_TYPES.SKI_ERG]: 1, [EQUIPMENT_TYPES.REBOUNDER]: 1, [EQUIPMENT_TYPES.LEG_SLED]: MAX_LEG_SLED_STATIONS, [EQUIPMENT_TYPES.WEIGHT_BENCH]: MAX_WEIGHT_BENCH_STATIO..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 64,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getEquipmentClassificationText",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function getEquipmentClassificationText(template) { const equipmentRequired = normalizeText(template?.equipment_required) if (equipmentRequired) return equipmentRequired return ..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 66,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentClassificationText",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentRequired) return equipmentRequired"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 70,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "export function getEquipmentTypeLabel(equipmentType) { switch (equipmentType) { case EQUIPMENT_TYPES.TRX: return 'TRX' case EQUIPMENT_TYPES.CABLE: return 'Cable' case EQUIPMENT_..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 71,
+      "nodeKind": "SwitchStatement",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "switch (equipmentType) { case EQUIPMENT_TYPES.TRX: return 'TRX' case EQUIPMENT_TYPES.CABLE: return 'Cable' case EQUIPMENT_TYPES.CABLE_DUAL: return 'Cable' case EQUIPMENT_TYPES.SKI_ERG: return 'Ski Erg' case EQUIPMENT_..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 72,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.TRX: return 'TRX'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 74,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.CABLE: return 'Cable'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 76,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.CABLE_DUAL: return 'Cable'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 78,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.SKI_ERG: return 'Ski Erg'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 80,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.REBOUNDER: return 'Rebounder'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 82,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.LEG_SLED: return 'Leg Sled'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 84,
+      "nodeKind": "CaseClause",
+      "functionName": "getEquipmentTypeLabel",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "case EQUIPMENT_TYPES.WEIGHT_BENCH: return 'Weight Bench'"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 105,
+      "nodeKind": "IfStatement",
+      "functionName": "requiresBothCables",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentRequired.includes('cable')) { return indicatesBothCables(equipmentRequired) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 109,
+      "nodeKind": "IfStatement",
+      "functionName": "requiresBothCables",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (stationName.includes('cable')) { return indicatesBothCables(stationName) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 116,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "classifyEquipment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function classifyEquipment(template) { return getEquipmentType(template) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 120,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "export function getEquipmentType(template) { const text = getEquipmentClassificationText(template) if (/\\btrx\\b/.test(text)) { return EQUIPMENT_TYPES.TRX } if (text.includes('ca..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 123,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (/\\btrx\\b/.test(text)) { return EQUIPMENT_TYPES.TRX }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 126,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('cable')) { return requiresBothCables(template) ? EQUIPMENT_TYPES.CABLE_DUAL : EQUIPMENT_TYPES.CABLE }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 127,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "requiresBothCables(template) ? EQUIPMENT_TYPES.CABLE_DUAL : EQUIPMENT_TYPES.CABLE"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 131,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('ski erg')) { return EQUIPMENT_TYPES.SKI_ERG }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 134,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('rebounder')) { return EQUIPMENT_TYPES.REBOUNDER }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 137,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('leg sled')) { return EQUIPMENT_TYPES.LEG_SLED }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 140,
+      "nodeKind": "IfStatement",
+      "functionName": "getEquipmentType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('bench')) { return EQUIPMENT_TYPES.WEIGHT_BENCH }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 147,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getAllowedLocationsForEquipmentType",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function getAllowedLocationsForEquipmentType(equipmentType, activeLocationCodes = ALL_LOCATION_CODES) { const typeLocations = ALLOWED_LOCATIONS_BY_TYPE[equipmentType] ?? MOVABLE..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 150,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "getAllowedLocationsForEquipmentType",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "equipmentType === EQUIPMENT_TYPES.MOVABLE ? typeLocations.filter((code) => !MOVABLE_FORBIDDEN.includes(code)) : typeLocations"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 157,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "buildDbEquipmentMap",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function buildDbEquipmentMap(equipmentAllowedLocations) { const map = new Map() for (const row of equipmentAllowedLocations) { if (!row.equipment_id || !row.location_code) conti..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 159,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildDbEquipmentMap",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of equipmentAllowedLocations) { if (!row.equipment_id || !row.location_code) continue if (!map.has(row.equipment_id)) { map.set(row.equipment_id, new Set()) } map.get(row.equipment_id).add(row.location_..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 160,
+      "nodeKind": "IfStatement",
+      "functionName": "buildDbEquipmentMap",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!row.equipment_id || !row.location_code) continue"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 161,
+      "nodeKind": "IfStatement",
+      "functionName": "buildDbEquipmentMap",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!map.has(row.equipment_id)) { map.set(row.equipment_id, new Set()) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 169,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "buildDbConflictSet",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function buildDbConflictSet(locationConflicts = []) { const set = new Set() for (const row of locationConflicts) { const a = row.location_code const b = row.conflict_with_locati..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 171,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildDbConflictSet",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of locationConflicts) { const a = row.location_code const b = row.conflict_with_location_code if (!a || !b) continue set.add(`${a}|${b}`) set.add(`${b}|${a}`) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 174,
+      "nodeKind": "IfStatement",
+      "functionName": "buildDbConflictSet",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!a || !b) continue"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 181,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "intersectLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function intersectLocations(primary, secondary) { const secondarySet = new Set(secondary) return primary.filter((code) => secondarySet.has(code)) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 186,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getAllowedLocationsForTemplate",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function getAllowedLocationsForTemplate( template, equipmentAllowedLocations, activeLocationCodes = ALL_LOCATION_CODES, ) { const equipmentType = getEquipmentType(templat..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 194,
+      "nodeKind": "IfStatement",
+      "functionName": "getAllowedLocationsForTemplate",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (template?.equipment_id) { const dbMap = buildDbEquipmentMap(equipmentAllowedLocations) const dbLocations = dbMap.get(template.equipment_id) if (dbLocations?.size) { typeLocations = intersectLocations( typeLocation..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 197,
+      "nodeKind": "IfStatement",
+      "functionName": "getAllowedLocationsForTemplate",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (dbLocations?.size) { typeLocations = intersectLocations( typeLocations, [...dbLocations].filter((code) => isKnownLocation(code)), ) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 208,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getAdjacentLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function getAdjacentLocations(locationCode) { const adjacent = new Set() for (const [a, b] of ADJACENT_BENCH_PAIRS) { if (a === locationCode) adjacent.add(b) if (b === locationC..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 210,
+      "nodeKind": "ForOfStatement",
+      "functionName": "getAdjacentLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const [a, b] of ADJACENT_BENCH_PAIRS) { if (a === locationCode) adjacent.add(b) if (b === locationCode) adjacent.add(a) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 211,
+      "nodeKind": "IfStatement",
+      "functionName": "getAdjacentLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (a === locationCode) adjacent.add(b)"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 212,
+      "nodeKind": "IfStatement",
+      "functionName": "getAdjacentLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (b === locationCode) adjacent.add(a)"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 217,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "hasAdjacentBenchLocation",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function hasAdjacentBenchLocation(locationCode, benchLocations) { const adjacent = getAdjacentLocations(locationCode) return [...adjacent].some((code) => benchLocations.has(code..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 232,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "markLocationUsed",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function markLocationUsed(state, locationCode) { if (!locationCode || locationCode === '—') return if (locationCode === 'S1+S2') { state.usedLocations.add('S1') state.usedLocati..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 233,
+      "nodeKind": "IfStatement",
+      "functionName": "markLocationUsed",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!locationCode || locationCode === '—') return"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 234,
+      "nodeKind": "IfStatement",
+      "functionName": "markLocationUsed",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S1+S2') { state.usedLocations.add('S1') state.usedLocations.add('S2') state.dualCableReserved = true return }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 243,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "applyAssignment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function applyAssignment(state, template, locationCode, equipmentAllowedLocations) { if (!locationCode || locationCode === '—') return const equipmentType = getEquipmentType(tem..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 244,
+      "nodeKind": "IfStatement",
+      "functionName": "applyAssignment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!locationCode || locationCode === '—') return"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 249,
+      "nodeKind": "IfStatement",
+      "functionName": "applyAssignment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.WEIGHT_BENCH) { state.benchStationCount += 1 if (locationCode !== 'S1+S2') { state.benchLocations.add(locationCode) } }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 251,
+      "nodeKind": "IfStatement",
+      "functionName": "applyAssignment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode !== 'S1+S2') { state.benchLocations.add(locationCode) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 255,
+      "nodeKind": "IfStatement",
+      "functionName": "applyAssignment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.LEG_SLED) { state.legSledCount += 1 }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 260,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getPreferredLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function getPreferredLocations(template, equipmentType, state, equipmentAllowedLocations, activeLocationCodes) { if ( equipmentType === EQUIPMENT_TYPES.WEIGHT_BENCH && state.ben..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 261,
+      "nodeKind": "IfStatement",
+      "functionName": "getPreferredLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if ( equipmentType === EQUIPMENT_TYPES.WEIGHT_BENCH && state.benchStationCount >= MAX_WEIGHT_BENCH_STATIONS ) { return getAllowedLocationsForTemplate( { ...template, equipment_required: 'Common movable' }, equipmentAl..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 279,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function evaluatePlacementViolations( locationCode, template, equipmentType, state, equipmentAllowedLocations, activeLocationCodes, dbConflictSet, ) { const violations = [] cons..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 288,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "violations = []"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 292,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "locationCode === 'S1+S2' ? ['S1', 'S2'] : [locationCode]"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 294,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S1+S2') { if (!classifiedAllowed.includes('S1') || !classifiedAllowed.includes('S2')) { violations.push('equipment-location') } } else if (!classifiedAllowed.includes(locationCode)) { violations...."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 295,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!classifiedAllowed.includes('S1') || !classifiedAllowed.includes('S2')) { violations.push('equipment-location') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 298,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!classifiedAllowed.includes(locationCode)) { violations.push('equipment-location') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 302,
+      "nodeKind": "ForOfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const code of codesToCheck) { if (equipmentType === EQUIPMENT_TYPES.MOVABLE && MOVABLE_FORBIDDEN.includes(code)) { violations.push('movable-forbidden') } }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 303,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.MOVABLE && MOVABLE_FORBIDDEN.includes(code)) { violations.push('movable-forbidden') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 308,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S2' && state.usedLocations.has('S3')) { violations.push('s3-blocks-s2') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 311,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S3' && state.usedLocations.has('S2')) { violations.push('s2-blocks-s3') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 314,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if ( locationCode === 'S3' && (state.dualCableReserved || (state.usedLocations.has('S1') && state.usedLocations.has('S2'))) ) { violations.push('s1-s2-block-s3') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 320,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'G3' && state.usedLocations.has('G4')) { violations.push('g4-blocks-g3') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 324,
+      "nodeKind": "ForOfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const code of codesToCheck) { for (const used of state.usedLocations) { if (dbConflictSet.has(`${code}|${used}`)) { violations.push('db-conflict') } } }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 325,
+      "nodeKind": "ForOfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const used of state.usedLocations) { if (dbConflictSet.has(`${code}|${used}`)) { violations.push('db-conflict') } }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 326,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (dbConflictSet.has(`${code}|${used}`)) { violations.push('db-conflict') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 332,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.WEIGHT_BENCH) { if (state.benchStationCount >= MAX_WEIGHT_BENCH_STATIONS) { violations.push('max-weight-bench') } if (hasAdjacentBenchLocation(locationCode, state.benchLocations))..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 333,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (state.benchStationCount >= MAX_WEIGHT_BENCH_STATIONS) { violations.push('max-weight-bench') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 336,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (hasAdjacentBenchLocation(locationCode, state.benchLocations)) { violations.push('adjacent-bench') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 341,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.LEG_SLED && state.legSledCount >= MAX_LEG_SLED_STATIONS) { violations.push('max-leg-sled') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 345,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S1+S2') { if (state.usedLocations.has('S1') || state.usedLocations.has('S2')) { violations.push('dual-cable-unavailable') } }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 346,
+      "nodeKind": "IfStatement",
+      "functionName": "evaluatePlacementViolations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (state.usedLocations.has('S1') || state.usedLocations.has('S2')) { violations.push('dual-cable-unavailable') }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 354,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "noValidLocationWarning",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function noValidLocationWarning(template) { return `No valid location found for ${template.station_name ?? 'station'}.` }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 363,
+      "nodeKind": "SwitchStatement",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "switch (violation) { case 'equipment-location': return `\"${name}\" is assigned to ${locationCode} but is classified as ${label} equipment, which is not allowed at that location.` case 'movable-forbidden': return `\"${na..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 364,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'equipment-location': return `\"${name}\" is assigned to ${locationCode} but is classified as ${label} equipment, which is not allowed at that location.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 366,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'movable-forbidden': return `\"${name}\" is assigned to ${locationCode} but is classified as ${label} equipment, which is not allowed at that location.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 368,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 's3-blocks-s2': return `Location conflict: \"${name}\" at ${locationCode} — S3 is in use, so S2 cannot be used.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 370,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 's2-blocks-s3': return `Location conflict: \"${name}\" at ${locationCode} — S2 is in use, so S3 cannot be used.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 372,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 's1-s2-block-s3': return `Location conflict: \"${name}\" at ${locationCode} — both cable locations are in use, so S3 cannot be used.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 374,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'g4-blocks-g3': return `Location conflict: \"${name}\" at ${locationCode} — G4 is in use, so G3 cannot be used.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 376,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'adjacent-bench': return `Adjacent weight benches: \"${name}\" at ${locationCode} is next to another weight bench station.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 378,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'max-weight-bench': return `Weight bench limit: \"${name}\" exceeds the maximum of ${MAX_WEIGHT_BENCH_STATIONS} weight bench stations.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 380,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'max-leg-sled': return `Leg sled limit: \"${name}\" exceeds the maximum of ${MAX_LEG_SLED_STATIONS} leg sled station per class.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 382,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'dual-cable-unavailable': return `Location assignment: \"${name}\" requires both cables but S1 and S2 are not both available.`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 384,
+      "nodeKind": "CaseClause",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "case 'db-conflict': return `Location conflict: \"${name}\" at ${locationCode} conflicts with another assigned location (database rule).`"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 401,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "rankCandidates",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "equipmentType === EQUIPMENT_TYPES.CABLE_DUAL ? ['S1+S2'] : getPreferredLocations(template, equipmentType, state, equipmentAllowedLocations, activeLocationCodes)"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 408,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "rankCandidates",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "equipmentType === EQUIPMENT_TYPES.CABLE_DUAL ? ['S1+S2'] : activeLocationCodes.filter((code) => !state.usedLocations.has(code))"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 425,
+      "nodeKind": "IfStatement",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (preferred.has(code)) score += 100"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 434,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "pickLocationForTemplate",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function pickLocationForTemplate( template, activeLocationCodes, state, equipmentAllowedLocations, locationConflicts = [], ) { const ranked = rankCandidates( template, ac..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 449,
+      "nodeKind": "IfStatement",
+      "functionName": "pickLocationForTemplate",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (ranked.length > 0) { return { locationCode: ranked[0].code, warnings: [] } }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 459,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "sortTemplatesForAssignment",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function sortTemplatesForAssignment(templates, equipmentAllowedLocations) { return [...templates].sort((a, b) => { const priorityA = ASSIGNMENT_PRIORITY[getEquipmentType(..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 463,
+      "nodeKind": "IfStatement",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (priorityA !== priorityB) return priorityA - priorityB"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 468,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function assignLocations({ templates, activeLocationCodes, equipmentAllowedLocations, locationConflicts = [], existingAssignments = [], }) { const state = createEmptyStat..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 476,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 479,
+      "nodeKind": "ForOfStatement",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const assignment of existingAssignments) { if (!assignment.template || !assignment.locationCode || assignment.locationCode === '—') { continue } applyAssignment( state, assignment.template, assignment.locationCod..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 480,
+      "nodeKind": "IfStatement",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!assignment.template || !assignment.locationCode || assignment.locationCode === '—') { continue }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 494,
+      "nodeKind": "ForOfStatement",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const template of sortedTemplates) { if (results.has(template.id)) continue const { locationCode, warnings: placementWarnings } = pickLocationForTemplate( template, activeLocationCodes, state, equipmentAllowedLoc..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 495,
+      "nodeKind": "IfStatement",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (results.has(template.id)) continue"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 507,
+      "nodeKind": "IfStatement",
+      "functionName": "assignLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode) { applyAssignment(state, template, locationCode, equipmentAllowedLocations) results.set(template.id, locationCode) } else { results.set(template.id, null) }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 518,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "validateLocationAssignments",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function validateLocationAssignments( circuit, stationTemplates, equipmentAllowedLocations, locationConflicts = [], ) { const templateById = new Map(stationTemplates.map(..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 525,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "validateLocationAssignments",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 531,
+      "nodeKind": "ForOfStatement",
+      "functionName": "validateLocationAssignments",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of ordered) { const template = templateById.get(row.templateId) if (!template) continue if (!row.locationCode || row.locationCode === '—') { warnings.push(noValidLocationWarning(template)) continue } co..."
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 533,
+      "nodeKind": "IfStatement",
+      "functionName": "validateLocationAssignments",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template) continue"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 535,
+      "nodeKind": "IfStatement",
+      "functionName": "validateLocationAssignments",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!row.locationCode || row.locationCode === '—') { warnings.push(noValidLocationWarning(template)) continue }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 557,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "expandLocationCodes",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function expandLocationCodes(locationCode) { if (locationCode === 'S1+S2') return ['S1', 'S2'] if (!locationCode || locationCode === '—') return [] return [locationCode] }"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 558,
+      "nodeKind": "IfStatement",
+      "functionName": "expandLocationCodes",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S1+S2') return ['S1', 'S2']"
+    },
+    {
+      "file": "src/lib/locationAssignment.js",
+      "line": 559,
+      "nodeKind": "IfStatement",
+      "functionName": "expandLocationCodes",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!locationCode || locationCode === '—') return []"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 5,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "ALL_LOCATION_CODES = [ ...STRENGTH_LOCATIONS, ...GYM_LOCATIONS, ...OUTDOOR_LOCATIONS, ]"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 11,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "LOCATION_ZONES = [ { id: 'strength', label: 'Strength Floor', codes: STRENGTH_LOCATIONS }, { id: 'gym', label: 'Gym Floor', codes: GYM_LOCATIONS }, { id: 'outdoor', label: 'Outdoor', codes: OUTDOOR_LOCATIONS }, ]"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 17,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "isKnownLocation",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function isKnownLocation(code) { return ALL_LOCATION_CODES.includes(code) }"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 21,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getLocationSortIndex",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function getLocationSortIndex(locationCode) { if (!locationCode || locationCode === '—') return Infinity if (locationCode === 'S1+S2') return ALL_LOCATION_CODES.indexOf('..."
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 22,
+      "nodeKind": "IfStatement",
+      "functionName": "getLocationSortIndex",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!locationCode || locationCode === '—') return Infinity"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 23,
+      "nodeKind": "IfStatement",
+      "functionName": "getLocationSortIndex",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationCode === 'S1+S2') return ALL_LOCATION_CODES.indexOf('S1')"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 26,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "getLocationSortIndex",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "index === -1 ? Infinity : index"
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 29,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "sortCircuitRowsByLocation",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function sortCircuitRowsByLocation(rows) { return [...rows].sort((a, b) => { const locationOrder = getLocationSortIndex(a.locationCode) - getLocationSortIndex(b.locationC..."
+    },
+    {
+      "file": "src/lib/locations.js",
+      "line": 33,
+      "nodeKind": "IfStatement",
+      "functionName": "(anonymous)",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (locationOrder !== 0) return locationOrder"
+    },
+    {
+      "file": "src/lib/manualEdits.js",
+      "line": 28,
+      "nodeKind": "IfStatement",
+      "functionName": "getEligibleSwapTemplates",
+      "category": "Exercise Selection",
+      "recommendation": "keep in code",
+      "snippet": "if (!row.locationCode || row.locationCode === '—') { return [] }"
+    },
+    {
+      "file": "src/lib/manualEdits.js",
+      "line": 33,
+      "nodeKind": "IfStatement",
+      "functionName": "getEligibleSwapTemplates",
+      "category": "Exercise Selection",
+      "recommendation": "keep in code",
+      "snippet": "if (requiredCodes.length === 0) { return [] }"
+    },
+    {
+      "file": "src/lib/manualEdits.js",
+      "line": 62,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "getEligibleSwapTemplates",
+      "category": "Exercise Selection",
+      "recommendation": "keep in code",
+      "snippet": "sameCategory.length > 0 ? sameCategory : eligible"
+    },
+    {
+      "file": "src/lib/manualEdits.js",
+      "line": 89,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "findCircuitRowForMapLocation",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function findCircuitRowForMapLocation(circuit, locationCode, templateId) { return circuit.find( (row) => row.templateId === templateId && row.locationCode && row.location..."
+    },
+    {
+      "file": "src/lib/manualEdits.js",
+      "line": 99,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "applyMoveToLocation",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "export function applyMoveToLocation(row, targetLocationCode) { return { ...row, locationCode: targetLocationCode, manuallyEdited: true, } }"
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 3,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getClassRoundCount",
+      "category": "Class Structure",
+      "recommendation": "move to rules engine",
+      "snippet": "export function getClassRoundCount(stationCount) { return Number(stationCount) <= 12 ? 4 : 3 }"
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 4,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "getClassRoundCount",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "Number(stationCount) <= 12 ? 4 : 3"
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 7,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "buildRoundCountMap",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "export function buildRoundCountMap(stationRounds = []) { const map = new Map() for (const row of stationRounds) { const templateId = row.station_template_id if (!templateId) con..."
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 10,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildRoundCountMap",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "for (const row of stationRounds) { const templateId = row.station_template_id if (!templateId) continue map.set(templateId, (map.get(templateId) ?? 0) + 1) }"
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 12,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRoundCountMap",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!templateId) continue"
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 19,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getTemplateRoundCount",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "export function getTemplateRoundCount(template, roundCountMap, classRoundCount) { const roundsFromDb = roundCountMap.get(template?.id) if (roundsFromDb != null && roundsFromDb >..."
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 21,
+      "nodeKind": "IfStatement",
+      "functionName": "getTemplateRoundCount",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (roundsFromDb != null && roundsFromDb > 0) { return roundsFromDb }"
+    },
+    {
+      "file": "src/lib/rounds.js",
+      "line": 25,
+      "nodeKind": "IfStatement",
+      "functionName": "getTemplateRoundCount",
+      "category": "Class Structure",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template?.requires_4_rounds)) { return 4 }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 12,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "MAX_HEAVY = 2"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 13,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "MAX_WEIGHT_BENCH = 2"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 14,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "MAX_LEG_SLED = 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 16,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "buildConflictSet",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function buildConflictSet(conflicts) { const set = new Set() for (const row of conflicts) { const a = row.location_code const b = row.conflict_with_location_code if (!a || !b) c..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 18,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildConflictSet",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of conflicts) { const a = row.location_code const b = row.conflict_with_location_code if (!a || !b) continue set.add(`${a}|${b}`) set.add(`${b}|${a}`) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 21,
+      "nodeKind": "IfStatement",
+      "functionName": "buildConflictSet",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!a || !b) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 28,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "isThreeRoundClass",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "function isThreeRoundClass(classRoundCount) { return Number(classRoundCount) === 3 }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 36,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getActiveLocations",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function getActiveLocations(circuit) { return circuit.flatMap((row) => expandLocationCodes(row.locationCode)) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 40,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkDuplicateStationFamilies",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkDuplicateStationFamilies(circuit, stationTemplates) { const templateById = getTemplateMap(stationTemplates) const familyCounts = {} for (const row of circuit) { if..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 42,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "checkDuplicateStationFamilies",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "familyCounts = {}"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 44,
+      "nodeKind": "ForOfStatement",
+      "functionName": "checkDuplicateStationFamilies",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { if (!row.templateId) continue const family = templateById.get(row.templateId)?.station_family if (!family) continue familyCounts[family] = (familyCounts[family] ?? 0) + 1 }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 45,
+      "nodeKind": "IfStatement",
+      "functionName": "checkDuplicateStationFamilies",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!row.templateId) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 47,
+      "nodeKind": "IfStatement",
+      "functionName": "checkDuplicateStationFamilies",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!family) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 59,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkHeavyLimits(circuit, stationTemplates) { const templateById = getTemplateMap(stationTemplates) let heavyLowBack = 0 let heavyShoulder = 0 let twistingLoaded = 0 fo..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 65,
+      "nodeKind": "ForOfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { const template = templateById.get(row.templateId) if (!template) continue if (isTruthy(template.heavy_low_back)) heavyLowBack += 1 if (isTruthy(template.heavy_shoulder)) heavyShoulder += 1..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 67,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 68,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_low_back)) heavyLowBack += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 69,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_shoulder)) heavyShoulder += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 70,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.twisting_loaded)) twistingLoaded += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 73,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "checkHeavyLimits",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 74,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (heavyLowBack > MAX_HEAVY) { warnings.push(`More than ${MAX_HEAVY} heavy_low_back stations (${heavyLowBack} selected).`) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 77,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (heavyShoulder > MAX_HEAVY) { warnings.push(`More than ${MAX_HEAVY} heavy_shoulder stations (${heavyShoulder} selected).`) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 80,
+      "nodeKind": "IfStatement",
+      "functionName": "checkHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (twistingLoaded > MAX_HEAVY) { warnings.push(`More than ${MAX_HEAVY} twisting_loaded stations (${twistingLoaded} selected).`) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 86,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkFourRoundStationsInThreeRoundClass",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "function checkFourRoundStationsInThreeRoundClass(circuit, stationTemplates, classRoundCount) { if (!isThreeRoundClass(classRoundCount)) return [] const templateById = getTemplat..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 87,
+      "nodeKind": "IfStatement",
+      "functionName": "checkFourRoundStationsInThreeRoundClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!isThreeRoundClass(classRoundCount)) return []"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 98,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkDatabaseLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkDatabaseLocationConflicts(circuit, conflictSet) { const warnings = [] const locations = getActiveLocations(circuit) for (let i = 0; i < locations.length; i += 1) {..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 99,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "checkDatabaseLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 102,
+      "nodeKind": "ForStatement",
+      "functionName": "checkDatabaseLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "for (let i = 0; i < locations.length; i += 1) { for (let j = i + 1; j < locations.length; j += 1) { if (conflictSet.has(`${locations[i]}|${locations[j]}`)) { warnings.push( `Location conflict: ${locations[i]} and ${lo..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 103,
+      "nodeKind": "ForStatement",
+      "functionName": "checkDatabaseLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "for (let j = i + 1; j < locations.length; j += 1) { if (conflictSet.has(`${locations[i]}|${locations[j]}`)) { warnings.push( `Location conflict: ${locations[i]} and ${locations[j]} cannot be used together.`, ) } }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 104,
+      "nodeKind": "IfStatement",
+      "functionName": "checkDatabaseLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (conflictSet.has(`${locations[i]}|${locations[j]}`)) { warnings.push( `Location conflict: ${locations[i]} and ${locations[j]} cannot be used together.`, ) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 115,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkBuiltInLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkBuiltInLocationConflicts(circuit) { const used = new Set(getActiveLocations(circuit)) const warnings = [] if (used.has('S3') && used.has('S2')) { warnings.push('Lo..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 117,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "checkBuiltInLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 119,
+      "nodeKind": "IfStatement",
+      "functionName": "checkBuiltInLocationConflicts",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (used.has('S3') && used.has('S2')) { warnings.push('Location conflict: S3 and S2 cannot both be used.') }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 122,
+      "nodeKind": "IfStatement",
+      "functionName": "checkBuiltInLocationConflicts",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (used.has('S3') && used.has('S1') && used.has('S2')) { warnings.push('Location conflict: S3 cannot be used when both S1 and S2 are in use.') }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 125,
+      "nodeKind": "IfStatement",
+      "functionName": "checkBuiltInLocationConflicts",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (used.has('G4') && used.has('G3')) { warnings.push('Location conflict: G4 and G3 cannot both be used.') }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 132,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkAdjacentWeightBenches(circuit, stationTemplates, equipmentAllowedLocations) { const templateById = getTemplateMap(stationTemplates) const benchLocations = new Set(..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 136,
+      "nodeKind": "ForOfStatement",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { const template = templateById.get(row.templateId) if (!template || !row.locationCode || row.locationCode === '—') continue if (getEquipmentType(template) === EQUIPMENT_TYPES.WEIGHT_BENCH) ..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 138,
+      "nodeKind": "IfStatement",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template || !row.locationCode || row.locationCode === '—') continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 139,
+      "nodeKind": "IfStatement",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (getEquipmentType(template) === EQUIPMENT_TYPES.WEIGHT_BENCH) { expandLocationCodes(row.locationCode).forEach((code) => benchLocations.add(code)) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 144,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 145,
+      "nodeKind": "ForOfStatement",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const [a, b] of ADJACENT_BENCH_PAIRS) { if (benchLocations.has(a) && benchLocations.has(b)) { warnings.push(`Adjacent weight benches: ${a} and ${b} both have weight bench stations.`) } }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 146,
+      "nodeKind": "IfStatement",
+      "functionName": "checkAdjacentWeightBenches",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (benchLocations.has(a) && benchLocations.has(b)) { warnings.push(`Adjacent weight benches: ${a} and ${b} both have weight bench stations.`) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 154,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkWeightBenchCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkWeightBenchCount(circuit, stationTemplates, equipmentAllowedLocations) { const templateById = getTemplateMap(stationTemplates) let count = 0 for (const row of circ..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 158,
+      "nodeKind": "ForOfStatement",
+      "functionName": "checkWeightBenchCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { const template = templateById.get(row.templateId) if (!template) continue if (getEquipmentType(template) === EQUIPMENT_TYPES.WEIGHT_BENCH) { count += 1 } }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 160,
+      "nodeKind": "IfStatement",
+      "functionName": "checkWeightBenchCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 161,
+      "nodeKind": "IfStatement",
+      "functionName": "checkWeightBenchCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (getEquipmentType(template) === EQUIPMENT_TYPES.WEIGHT_BENCH) { count += 1 }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 166,
+      "nodeKind": "IfStatement",
+      "functionName": "checkWeightBenchCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (count > MAX_WEIGHT_BENCH) { return [`More than ${MAX_WEIGHT_BENCH} weight bench stations (${count} selected).`] }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 172,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkLegSledCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkLegSledCount(circuit, stationTemplates, equipmentAllowedLocations) { const templateById = getTemplateMap(stationTemplates) let count = 0 for (const row of circuit)..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 176,
+      "nodeKind": "ForOfStatement",
+      "functionName": "checkLegSledCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { const template = templateById.get(row.templateId) if (!template) continue if (getEquipmentType(template) === EQUIPMENT_TYPES.LEG_SLED) { count += 1 } }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 178,
+      "nodeKind": "IfStatement",
+      "functionName": "checkLegSledCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 179,
+      "nodeKind": "IfStatement",
+      "functionName": "checkLegSledCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (getEquipmentType(template) === EQUIPMENT_TYPES.LEG_SLED) { count += 1 }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 184,
+      "nodeKind": "IfStatement",
+      "functionName": "checkLegSledCount",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (count > MAX_LEG_SLED) { return [`More than ${MAX_LEG_SLED} leg sled station (${count} selected).`] }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 190,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "checkUnassignedLocations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function checkUnassignedLocations(circuit, stationTemplates) { const templateById = getTemplateMap(stationTemplates) return circuit .filter((row) => row.templateId && (!row.loca..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 196,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "template ? noValidLocationWarning(template) : `No valid location found for ${row.stationName}.`"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 202,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "countAdjacentBenchViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function countAdjacentBenchViolations(circuit, stationTemplates) { const templateById = getTemplateMap(stationTemplates) const benchLocations = new Set() for (const row of circu..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 206,
+      "nodeKind": "ForOfStatement",
+      "functionName": "countAdjacentBenchViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { const template = templateById.get(row.templateId) if (!template || !row.locationCode || row.locationCode === '—') continue if (getEquipmentType(template) === EQUIPMENT_TYPES.WEIGHT_BENCH) ..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 208,
+      "nodeKind": "IfStatement",
+      "functionName": "countAdjacentBenchViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template || !row.locationCode || row.locationCode === '—') continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 209,
+      "nodeKind": "IfStatement",
+      "functionName": "countAdjacentBenchViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (getEquipmentType(template) === EQUIPMENT_TYPES.WEIGHT_BENCH) { expandLocationCodes(row.locationCode).forEach((code) => benchLocations.add(code)) }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 215,
+      "nodeKind": "ForOfStatement",
+      "functionName": "countAdjacentBenchViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const [a, b] of ADJACENT_BENCH_PAIRS) { if (benchLocations.has(a) && benchLocations.has(b)) { violations += 1 } }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 216,
+      "nodeKind": "IfStatement",
+      "functionName": "countAdjacentBenchViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "if (benchLocations.has(a) && benchLocations.has(b)) { violations += 1 }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 224,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "countLocationConflicts",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "function countLocationConflicts(circuit, locationConflicts) { const conflictSet = buildConflictSet(locationConflicts ?? []) return ( checkBuiltInLocationConflicts(circuit).lengt..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 246,
+      "nodeKind": "ForOfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { if (!row.templateId) continue const template = templateById.get(row.templateId) if (!template) continue const equipmentType = getEquipmentType(template) if (equipmentType === EQUIPMENT_TYP..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 247,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!row.templateId) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 249,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!template) continue"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 252,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.WEIGHT_BENCH) weightBenches += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 253,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.TRX) trxStations += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 254,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (equipmentType === EQUIPMENT_TYPES.LEG_SLED) legSledStations += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 255,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_low_back)) heavyLowBack += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 256,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_shoulder)) heavyShoulder += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 257,
+      "nodeKind": "IfStatement",
+      "functionName": "buildRuleValidationSummary",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.twisting_loaded)) twistingLoaded += 1"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 276,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "validateCircuit",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "export function validateCircuit({ circuit, classRoundCount, stationTemplates, locationConflicts, equipmentAllowedLocations, }) { const conflictSet = buildConflictSet(locationCon..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 285,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "validateCircuit",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "locationWarnings = [ ...validateLocationAssignments( circuit, stationTemplates, equipmentAllowedLocations, locationConflicts, ), ...checkBuiltInLocationConflicts(circuit), ...checkDatabaseLocationConflicts(circuit, co..."
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 300,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "validateCircuit",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "categoryWarnings = []"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 302,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "validateCircuit",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "otherWarnings = [ ...checkDuplicateStationFamilies(circuit, stationTemplates), ...checkHeavyLimits(circuit, stationTemplates), ...checkFourRoundStationsInThreeRoundClass(circuit, stationTemplates, classRoundCount), ]"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 308,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "validateCircuit",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "categorized = { locationWarnings: [...new Set(locationWarnings)], categoryWarnings: [...new Set(categoryWarnings)], otherWarnings: [...new Set(otherWarnings)], }"
+    },
+    {
+      "file": "src/lib/ruleValidator.js",
+      "line": 324,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "validateCircuitFlat",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "export function validateCircuitFlat(args) { return validateCircuit(args).all }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 4,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "buildLocationIdMap",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "function buildLocationIdMap(stationLocations) { return new Map( stationLocations .filter((location) => location.location_code && location.id) .map((location) => [location.locati..."
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 34,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (stationsToSave.length === 0) { throw new Error('No assigned stations to save. Generate a circuit first.') }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 42,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "if (missingLocations.length > 0) { throw new Error( `Unknown location codes: ${[...new Set(missingLocations)].join(', ')}. Add them to station_locations first.`, ) }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 56,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "saveClass",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "notes?.trim() ? notes.trim() : null"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 61,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (classPlanError) { throw new Error(classPlanError.message) }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 79,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (classStationsError) { throw new Error(classStationsError.message) }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 89,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (violationRows.length > 0) { const { error: violationsError } = await supabase .from('rule_violations') .insert(violationRows) if (violationsError) { throw new Error(violationsError.message) } }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 94,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (violationsError) { throw new Error(violationsError.message) }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 103,
+      "nodeKind": "IfStatement",
+      "functionName": "usageRows",
+      "category": "Station",
+      "recommendation": "keep in code",
+      "snippet": "if (!exerciseFamily) return null"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 113,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (usageRows.length > 0) { const { error: usageError } = await supabase .from('class_exercise_usage') .insert(usageRows) if (usageError) { throw new Error(usageError.message) } }"
+    },
+    {
+      "file": "src/lib/saveClass.js",
+      "line": 118,
+      "nodeKind": "IfStatement",
+      "functionName": "saveClass",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (usageError) { throw new Error(usageError.message) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 8,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Exercise Selection",
+      "recommendation": "move to rules engine",
+      "snippet": "PLANNER_CATEGORIES = [ 'Lower Body', 'Upper Push', 'Upper Pull', 'Core', 'Cardio / Conditioning', 'Mobility / Balance', 'Power', 'Full Body', ]"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 19,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Exercise Selection",
+      "recommendation": "move to rules engine",
+      "snippet": "HEAVY_LIMIT = 2"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 28,
+      "nodeKind": "ForOfStatement",
+      "functionName": "getAvailableCategories",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const template of filterActiveTemplates(stationTemplates)) { if ( template.planner_category && PLANNER_CATEGORIES.includes(template.planner_category) ) { categories.add(template.planner_category) } }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 29,
+      "nodeKind": "IfStatement",
+      "functionName": "getAvailableCategories",
+      "category": "Exercise Selection",
+      "recommendation": "move to rules engine",
+      "snippet": "if ( template.planner_category && PLANNER_CATEGORIES.includes(template.planner_category) ) { categories.add(template.planner_category) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 45,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "calculateCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "export function calculateCategoryTargets(stationCount, availableCategories = PLANNER_CATEGORIES) { if (availableCategories.length === 0) { return Object.fromEntries(PLANNER_CATE..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 46,
+      "nodeKind": "IfStatement",
+      "functionName": "calculateCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "if (availableCategories.length === 0) { return Object.fromEntries(PLANNER_CATEGORIES.map((category) => [category, 0])) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 55,
+      "nodeKind": "ConditionalExpression",
+      "functionName": "(anonymous)",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "index < extra ? 1 : 0"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 61,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "getCategoryCountsFromCircuit",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "export function getCategoryCountsFromCircuit(circuit) { const counts = Object.fromEntries(PLANNER_CATEGORIES.map((category) => [category, 0])) for (const row of circuit) { if (!..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 64,
+      "nodeKind": "ForOfStatement",
+      "functionName": "getCategoryCountsFromCircuit",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const row of circuit) { if (!row.templateId) continue if (counts[row.plannerCategory] !== undefined) { counts[row.plannerCategory] += 1 } }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 65,
+      "nodeKind": "IfStatement",
+      "functionName": "getCategoryCountsFromCircuit",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!row.templateId) continue"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 66,
+      "nodeKind": "IfStatement",
+      "functionName": "getCategoryCountsFromCircuit",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "if (counts[row.plannerCategory] !== undefined) { counts[row.plannerCategory] += 1 }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 74,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "buildCategoryBalance",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "export function buildCategoryBalance(stationCount, circuit, stationTemplates = []) { const availableCategories = getAvailableCategories(stationTemplates) const unavailableCatego..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 86,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "createEmptyEquipmentCounts",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "function createEmptyEquipmentCounts() { return Object.fromEntries(Object.keys(EQUIPMENT_CAPACITY).map((type) => [type, 0])) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 90,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "createSelectionState",
+      "category": "Exercise Selection",
+      "recommendation": "move to rules engine",
+      "snippet": "function createSelectionState(selectedTemplates = []) { const state = { selected: [], categoryCounts: Object.fromEntries(PLANNER_CATEGORIES.map((c) => [c, 0])), familyCounts: {}..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 91,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "createSelectionState",
+      "category": "Exercise Selection",
+      "recommendation": "move to rules engine",
+      "snippet": "state = { selected: [], categoryCounts: Object.fromEntries(PLANNER_CATEGORIES.map((c) => [c, 0])), familyCounts: {}, heavyLowBack: 0, heavyShoulder: 0, twistingLoaded: 0, equipmentCounts: createEmptyEquipmentCounts(), }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 101,
+      "nodeKind": "ForOfStatement",
+      "functionName": "createSelectionState",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const template of selectedTemplates) { applyTemplateToState(state, template) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 112,
+      "nodeKind": "IfStatement",
+      "functionName": "applyTemplateToState",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (category && state.categoryCounts[category] !== undefined) { state.categoryCounts[category] += 1 }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 117,
+      "nodeKind": "IfStatement",
+      "functionName": "applyTemplateToState",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (family) { state.familyCounts[family] = (state.familyCounts[family] ?? 0) + 1 }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 121,
+      "nodeKind": "IfStatement",
+      "functionName": "applyTemplateToState",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_low_back)) state.heavyLowBack += 1"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 122,
+      "nodeKind": "IfStatement",
+      "functionName": "applyTemplateToState",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_shoulder)) state.heavyShoulder += 1"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 123,
+      "nodeKind": "IfStatement",
+      "functionName": "applyTemplateToState",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.twisting_loaded)) state.twistingLoaded += 1"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 126,
+      "nodeKind": "IfStatement",
+      "functionName": "applyTemplateToState",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (EQUIPMENT_CAPACITY[equipmentType] !== undefined) { state.equipmentCounts[equipmentType] += 1 }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 131,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "wouldExceedEquipmentCapacity",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "function wouldExceedEquipmentCapacity(template, state) { const equipmentType = classifyEquipment(template) const limit = EQUIPMENT_CAPACITY[equipmentType] if (limit === undefine..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 134,
+      "nodeKind": "IfStatement",
+      "functionName": "wouldExceedEquipmentCapacity",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (limit === undefined) return false"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 138,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "wouldViolateHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "function wouldViolateHeavyLimits(template, state) { if (isTruthy(template.heavy_low_back) && state.heavyLowBack >= HEAVY_LIMIT) return true if (isTruthy(template.heavy_shoulder)..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 139,
+      "nodeKind": "IfStatement",
+      "functionName": "wouldViolateHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_low_back) && state.heavyLowBack >= HEAVY_LIMIT) return true"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 140,
+      "nodeKind": "IfStatement",
+      "functionName": "wouldViolateHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_shoulder) && state.heavyShoulder >= HEAVY_LIMIT) return true"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 141,
+      "nodeKind": "IfStatement",
+      "functionName": "wouldViolateHeavyLimits",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.twisting_loaded) && state.twistingLoaded >= HEAVY_LIMIT) return true"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 145,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "wouldDuplicateFamily",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "function wouldDuplicateFamily(template, state) { const family = template.station_family if (!family) return false return (state.familyCounts[family] ?? 0) > 0 }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 147,
+      "nodeKind": "IfStatement",
+      "functionName": "wouldDuplicateFamily",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (!family) return false"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 151,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "wouldIncludeFourRoundStation",
+      "category": "Class Structure",
+      "recommendation": "move to rules engine",
+      "snippet": "function wouldIncludeFourRoundStation(template, classRoundCount) { return classRoundCount === 3 && isTruthy(template.requires_4_rounds) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 155,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "passesEquipmentAndHeavyConstraints",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "function passesEquipmentAndHeavyConstraints(template, state) { return !wouldExceedEquipmentCapacity(template, state) && !wouldViolateHeavyLimits(template, state) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 159,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "passesPreferredConstraints",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "function passesPreferredConstraints(template, state, classRoundCount) { return ( passesEquipmentAndHeavyConstraints(template, state) && !wouldDuplicateFamily(template, state) &&..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 167,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "function recordForcedConstraintWarnings(template, state, classRoundCount, warnings) { const name = template.station_name ?? 'Station' if (wouldExceedEquipmentCapacity(template, ..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 170,
+      "nodeKind": "IfStatement",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (wouldExceedEquipmentCapacity(template, state)) { warnings.push( `Included \"${name}\" despite exceeding ${getEquipmentTypeLabel(classifyEquipment(template))} capacity — no valid alternative remained.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 176,
+      "nodeKind": "IfStatement",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_low_back) && state.heavyLowBack >= HEAVY_LIMIT) { warnings.push( `Included \"${name}\" despite exceeding heavy_low_back limit — no valid alternative remained.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 182,
+      "nodeKind": "IfStatement",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.heavy_shoulder) && state.heavyShoulder >= HEAVY_LIMIT) { warnings.push( `Included \"${name}\" despite exceeding heavy_shoulder limit — no valid alternative remained.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 188,
+      "nodeKind": "IfStatement",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (isTruthy(template.twisting_loaded) && state.twistingLoaded >= HEAVY_LIMIT) { warnings.push( `Included \"${name}\" despite exceeding twisting_loaded limit — no valid alternative remained.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 194,
+      "nodeKind": "IfStatement",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (wouldDuplicateFamily(template, state)) { warnings.push( `Included \"${name}\" despite duplicating station family \"${template.station_family}\" — no valid alternative remained.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 200,
+      "nodeKind": "IfStatement",
+      "functionName": "recordForcedConstraintWarnings",
+      "category": "Load / Fatigue",
+      "recommendation": "move to rules engine",
+      "snippet": "if (wouldIncludeFourRoundStation(template, classRoundCount)) { warnings.push( `3-round class includes a 4-round station: \"${name}\" requires 4 rounds.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 207,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "pickFromPool",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "function pickFromPool(pool, predicate) { const matches = pool.filter(predicate) if (matches.length === 0) return null return matches[Math.floor(Math.random() * matches.length)] }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 209,
+      "nodeKind": "IfStatement",
+      "functionName": "pickFromPool",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (matches.length === 0) return null"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 213,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "pickForCategory",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "function pickForCategory(pool, category, state, classRoundCount, strictness) { const inCategory = (template) => template.planner_category === category if (strictness === 'prefer..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 216,
+      "nodeKind": "IfStatement",
+      "functionName": "pickForCategory",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (strictness === 'preferred') { return pickFromPool(pool, (template) => inCategory(template) && passesPreferredConstraints(template, state, classRoundCount)) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 220,
+      "nodeKind": "IfStatement",
+      "functionName": "pickForCategory",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (strictness === 'equipment-heavy') { return pickFromPool(pool, (template) => inCategory(template) && passesEquipmentAndHeavyConstraints(template, state)) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 237,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "function fillCategoryTargets({ pool, state, stationCount, targets, availableCategories, classRoundCount, warnings, warnedCategories, }) { const strictnessLevels = ['preferred', ..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 247,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "fillCategoryTargets",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "strictnessLevels = ['preferred', 'equipment-heavy', 'any']"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 249,
+      "nodeKind": "WhileStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "while (state.selected.length < stationCount && pool.length > 0) { const needing = getCategoriesNeedingStations(targets, state, availableCategories) if (needing.length === 0) break let picked = null for (const { catego..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 251,
+      "nodeKind": "IfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (needing.length === 0) break"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 255,
+      "nodeKind": "ForOfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const { category } of needing) { for (const strictness of strictnessLevels) { picked = pickForCategory(pool, category, state, classRoundCount, strictness) if (picked) break } if (picked) break if (!warnedCategori..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 256,
+      "nodeKind": "ForOfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "for (const strictness of strictnessLevels) { picked = pickForCategory(pool, category, state, classRoundCount, strictness) if (picked) break }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 258,
+      "nodeKind": "IfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "if (picked) break"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 261,
+      "nodeKind": "IfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "if (picked) break"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 263,
+      "nodeKind": "IfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Category Balance",
+      "recommendation": "move to rules engine",
+      "snippet": "if (!warnedCategories.has(category)) { warnings.push( `No eligible stations remaining for \"${category}\" (selected ${state.categoryCounts[category]}, target ${targets[category]}).`, ) warnedCategories.add(category) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 271,
+      "nodeKind": "IfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!picked) break"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 273,
+      "nodeKind": "IfStatement",
+      "functionName": "fillCategoryTargets",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!passesPreferredConstraints(picked, state, classRoundCount)) { recordForcedConstraintWarnings(picked, state, classRoundCount, warnings) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 282,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "pickRemainingCandidate",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "function pickRemainingCandidate(pool, state, classRoundCount, strictness) { if (strictness === 'preferred') { return pickFromPool(pool, (template) => passesPreferredConstraints(..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 283,
+      "nodeKind": "IfStatement",
+      "functionName": "pickRemainingCandidate",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (strictness === 'preferred') { return pickFromPool(pool, (template) => passesPreferredConstraints(template, state, classRoundCount)) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 287,
+      "nodeKind": "IfStatement",
+      "functionName": "pickRemainingCandidate",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (strictness === 'equipment-heavy') { return pickFromPool(pool, (template) => passesEquipmentAndHeavyConstraints(template, state)) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 301,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "fillRemainingSlots",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "strictnessLevels = ['preferred', 'equipment-heavy', 'any']"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 303,
+      "nodeKind": "WhileStatement",
+      "functionName": "fillRemainingSlots",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "while (state.selected.length < stationCount && pool.length > 0) { let picked = null for (const strictness of strictnessLevels) { picked = pickRemainingCandidate(pool, state, classRoundCount, strictness) if (picked) br..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 306,
+      "nodeKind": "ForOfStatement",
+      "functionName": "fillRemainingSlots",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "for (const strictness of strictnessLevels) { picked = pickRemainingCandidate(pool, state, classRoundCount, strictness) if (picked) break }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 308,
+      "nodeKind": "IfStatement",
+      "functionName": "fillRemainingSlots",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (picked) break"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 311,
+      "nodeKind": "IfStatement",
+      "functionName": "fillRemainingSlots",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!picked) break"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 313,
+      "nodeKind": "IfStatement",
+      "functionName": "fillRemainingSlots",
+      "category": "Class Structure",
+      "recommendation": "keep in code",
+      "snippet": "if (!passesPreferredConstraints(picked, state, classRoundCount)) { recordForcedConstraintWarnings(picked, state, classRoundCount, warnings) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 322,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "export function selectStations({ stationCount, classRoundCount, stationTemplates, lockedTemplates = [], }) { const activeTemplates = filterActiveTemplates(stationTemplates) cons..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 334,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "warnings = []"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 336,
+      "nodeKind": "IfStatement",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (activeTemplates.length === 0) { return { selected: [], warnings: ['No active station templates found in the database.'], categoryTargets, availableCategories, unavailableCategories, } }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 346,
+      "nodeKind": "IfStatement",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (availableCategories.length === 0) { warnings.push('No station templates are available for any planner category.') }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 350,
+      "nodeKind": "IfStatement",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (unavailableCategories.length > 0) { warnings.push( `Categories unavailable (no active templates): ${unavailableCategories.join(', ')}.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 356,
+      "nodeKind": "IfStatement",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (activeTemplates.length < stationCount) { warnings.push( `Only ${activeTemplates.length} active station template(s) exist in the database, but ${stationCount} were requested.`, ) }"
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 362,
+      "nodeKind": "IfStatement",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (lockedTemplates.length > stationCount) { return { selected: lockedTemplates.slice(0, stationCount), warnings: [ ...warnings, 'More locked stations than the requested station count. Only the first locked stations w..."
+    },
+    {
+      "file": "src/lib/stationSelector.js",
+      "line": 397,
+      "nodeKind": "IfStatement",
+      "functionName": "selectStations",
+      "category": "Exercise Selection",
+      "recommendation": "hybrid — keep orchestration in code, externalize thresholds",
+      "snippet": "if (state.selected.length < stationCount) { warnings.push( `Could only select ${state.selected.length} of ${stationCount} requested stations due to limited active templates.`, ) }"
+    },
+    {
+      "file": "src/lib/supabaseClient.js",
+      "line": 6,
+      "nodeKind": "IfStatement",
+      "functionName": null,
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (!supabaseUrl || !supabaseAnonKey) { console.warn( 'Missing Supabase environment variables. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local', ) }"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 4,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('duplicate station family')) return 'duplicate_station_family'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 5,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('heavy_low_back')) return 'heavy_low_back_limit'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 6,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('heavy_shoulder')) return 'heavy_shoulder_limit'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 7,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('twisting_loaded')) return 'twisting_loaded_limit'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 8,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('3-round class') || text.includes('4-round station')) { return 'four_round_in_three_round_class' }"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 11,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('location conflict')) return 'location_conflict'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 12,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('adjacent weight bench')) return 'adjacent_weight_bench'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 13,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('weight bench stations')) return 'weight_bench_limit'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 14,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('leg sled')) return 'leg_sled_limit'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 15,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('category balance')) return 'category_balance'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 16,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('no valid location found')) return 'no_valid_location'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 17,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('classified as') && text.includes('not allowed at that location')) { return 'equipment_location_mismatch' }"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 20,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('circuit incomplete')) return 'circuit_incomplete'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 21,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('selection rules were relaxed')) return 'selection_relaxed'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 22,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('could only select')) return 'insufficient_templates'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 23,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('without exceeding capacity')) return 'equipment_capacity'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 24,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('without exceeding limits for')) return 'heavy_limit'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 25,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('no eligible stations remaining for')) return 'category_shortfall'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 26,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('despite exceeding') || text.includes('despite duplicating')) { return 'forced_constraint' }"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 29,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('categories unavailable')) return 'unavailable_category'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 30,
+      "nodeKind": "IfStatement",
+      "functionName": "inferViolationType",
+      "category": "Equipment",
+      "recommendation": "move to rules engine",
+      "snippet": "if (text.includes('exceeds') && text.includes('capacity')) return 'equipment_capacity'"
+    },
+    {
+      "file": "src/lib/violationTypes.js",
+      "line": 35,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "warningsToViolations",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "export function warningsToViolations(warnings) { return warnings.map((message) => ({ violation_type: inferViolationType(message), message, })) }"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 1,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "MOVABLE_ALLOWED = [ 'S4', 'S5', 'S7', 'S8', 'S9', 'G1', 'G2', 'G3', 'G5', 'G6', 'G7', 'O2', 'O3', 'O4', ]"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 7,
+      "nodeKind": "VariableDeclaration",
+      "functionName": null,
+      "category": "Floor Location",
+      "recommendation": "move to rules engine",
+      "snippet": "MOVABLE_FORBIDDEN = ['S1', 'S2', 'S3', 'S6', 'G4', 'O1']"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 9,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "isCategoryBalanceWarning",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "export function isCategoryBalanceWarning(message) { const text = (message ?? '').toLowerCase() return text.includes('no eligible stations remaining for') }"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 14,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "isOtherRuleWarning",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "export function isOtherRuleWarning(message) { const text = (message ?? '').toLowerCase() return ( text.includes('categories unavailable') || text.includes('despite exceeding') |..."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 27,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "isLocationRuleWarning",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "export function isLocationRuleWarning(message) { const text = (message ?? '').toLowerCase() if (isCategoryBalanceWarning(message)) return false return ( text.includes('no valid ..."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 29,
+      "nodeKind": "IfStatement",
+      "functionName": "isLocationRuleWarning",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (isCategoryBalanceWarning(message)) return false"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 47,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "export function categorizeWarnings(warnings) { const locationWarnings = [] const categoryWarnings = [] const otherWarnings = [] for (const message of warnings) { if (isCategoryB..."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 48,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "locationWarnings = []"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 49,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "categoryWarnings = []"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 50,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "otherWarnings = []"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 52,
+      "nodeKind": "ForOfStatement",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "for (const message of warnings) { if (isCategoryBalanceWarning(message)) { categoryWarnings.push(message) } else if (isOtherRuleWarning(message)) { otherWarnings.push(message) } else if (isLocationRuleWarning(message)..."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 53,
+      "nodeKind": "IfStatement",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (isCategoryBalanceWarning(message)) { categoryWarnings.push(message) } else if (isOtherRuleWarning(message)) { otherWarnings.push(message) } else if (isLocationRuleWarning(message)) { locationWarnings.push(message)..."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 55,
+      "nodeKind": "IfStatement",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (isOtherRuleWarning(message)) { otherWarnings.push(message) } else if (isLocationRuleWarning(message)) { locationWarnings.push(message) } else { otherWarnings.push(message) }"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 57,
+      "nodeKind": "IfStatement",
+      "functionName": "categorizeWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (isLocationRuleWarning(message)) { locationWarnings.push(message) } else { otherWarnings.push(message) }"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 71,
+      "nodeKind": "FunctionDeclaration",
+      "functionName": "mergeCategorizedWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "export function mergeCategorizedWarnings(...groups) { const merged = { locationWarnings: [], categoryWarnings: [], otherWarnings: [], } for (const group of groups) { if (!group)..."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 72,
+      "nodeKind": "VariableDeclaration",
+      "functionName": "mergeCategorizedWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "move to rules engine",
+      "snippet": "merged = { locationWarnings: [], categoryWarnings: [], otherWarnings: [], }"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 78,
+      "nodeKind": "ForOfStatement",
+      "functionName": "mergeCategorizedWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "for (const group of groups) { if (!group) continue if (Array.isArray(group)) { const categorized = categorizeWarnings(group) merged.locationWarnings.push(...categorized.locationWarnings) merged.categoryWarnings.push(...."
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 79,
+      "nodeKind": "IfStatement",
+      "functionName": "mergeCategorizedWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (!group) continue"
+    },
+    {
+      "file": "src/lib/warningCategories.js",
+      "line": 80,
+      "nodeKind": "IfStatement",
+      "functionName": "mergeCategorizedWarnings",
+      "category": "Overrides / Warnings",
+      "recommendation": "keep in code",
+      "snippet": "if (Array.isArray(group)) { const categorized = categorizeWarnings(group) merged.locationWarnings.push(...categorized.locationWarnings) merged.categoryWarnings.push(...categorized.categoryWarnings) merged.otherWarning..."
+    }
+  ]
+}
