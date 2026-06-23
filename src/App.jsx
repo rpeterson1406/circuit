@@ -104,6 +104,7 @@ export default function App() {
   const [saving, setSaving] = useState(false)
   const [saveMessage, setSaveMessage] = useState(null)
   const [savedClassPlans, setSavedClassPlans] = useState([])
+  const [analyticsRefreshKey, setAnalyticsRefreshKey] = useState(0)
   const [loadingClassPlans, setLoadingClassPlans] = useState(false)
   const [loadingClass, setLoadingClass] = useState(false)
   const [myClassesMessage, setMyClassesMessage] = useState(null)
@@ -155,6 +156,7 @@ export default function App() {
   const refreshSavedClassPlans = useCallback(async () => {
     const plans = await fetchSavedClassPlans()
     setSavedClassPlans(plans)
+    setAnalyticsRefreshKey((key) => key + 1)
     return plans
   }, [])
 
@@ -708,6 +710,7 @@ export default function App() {
             plans={savedClassPlans}
             loading={loadingClassPlans || loadingClass}
             message={myClassesMessage}
+            analyticsRefreshKey={analyticsRefreshKey}
             onSelectClass={handleOpenClass}
             onEditClass={(classPlanId) => handleOpenClass(classPlanId, { startInEditMode: true })}
           />

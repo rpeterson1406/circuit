@@ -1,3 +1,5 @@
+import MyClassesAnalytics from './MyClassesAnalytics'
+
 function formatDisplayDate(isoDate) {
   if (!isoDate) return '—'
 
@@ -15,6 +17,7 @@ export default function MyClasses({
   plans,
   loading,
   message,
+  analyticsRefreshKey = 0,
   onSelectClass,
   onEditClass,
 }) {
@@ -86,12 +89,15 @@ export default function MyClasses({
       </div>
 
       <section className="my-classes-upload-card">
-        <h2>Upload Older Classes</h2>
-        <p className="panel-description">Upload older classes coming soon.</p>
-        <button type="button" className="btn-secondary" disabled>
-          Upload Older Classes
-        </button>
+        <div className="my-classes-upload-row">
+          <button type="button" className="btn-secondary" disabled>
+            Upload Older Classes
+          </button>
+          <span className="my-classes-coming-soon">Coming soon</span>
+        </div>
       </section>
+
+      <MyClassesAnalytics refreshKey={analyticsRefreshKey} />
     </section>
   )
 }
