@@ -14,8 +14,8 @@ export async function fetchReferenceData() {
     supabase.from('station_templates').select('*'),
     supabase.from('station_locations').select('*'),
     supabase.from('station_rounds').select('*'),
-    supabase.from('location_conflicts').select('*'),
-    supabase.from('equipment_allowed_locations').select('*'),
+    supabase.from('location_conflict_xref').select('*'),
+    supabase.from('equipment_location_xref').select('*'),
     supabase.from('rule_definition').select('*'),
     supabase.from('exercises').select('*'),
   ])
